@@ -3,34 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace FCM
 {
     class Vertex
     {
         //Поля
-        private String _name; // Название вершины
-        public String _Name
-        {
-            get { return _name; }
-            set { _name = value; }
+        
+        public String Name { get; set; }
+        
+        public double StartValue{ get; set; }        
+        public List<double> Values{get;}
+
+
+        // Методы
+
+        // разделитель колонок из файла CSV
+        public void SplitCSV(string line)
+        {          
+            string[] parts = line.Split(';');  //Разделитель в CSV файле.
+            Name = parts[0];
+            StartValue = Convert.ToDouble(parts[1]);
         }
-        private double _startValue;
-        public double _StartValue
+
+        public static List<Vertex> ReadFile(string filename)
         {
-            get { return _startValue; }
-            set { _startValue = value; }
-        }
-        private List<double> _values;
-        public List<double> _Values
-        {
-            get { return _values; }
-        }
-        //конструкторы
-        public Vertex(string Name, double StartValue)
-        {
-            _name = Name;
-            _startValue = StartValue;
+            List<Vertex> result = new List<Vertex>();
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Vertex p = new Vertex();
+                    p.SplitCSV(line);
+                    result.Add(p);
+                }
+            }
+
+            return result;
         }
     }
 }

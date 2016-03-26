@@ -43,6 +43,7 @@
             this.btnToWeights = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnCalc = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VertexNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVertex)).BeginInit();
@@ -68,13 +69,13 @@
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             this.открытьToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.открытьToolStripMenuItem.Text = "Файл";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem1
             // 
             this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
             this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.открытьToolStripMenuItem1.Text = "Открыть";
+            this.открытьToolStripMenuItem1.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -185,6 +186,10 @@
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "\"CSV files|*.csv*|Все файлы|*.*\"";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,6 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
