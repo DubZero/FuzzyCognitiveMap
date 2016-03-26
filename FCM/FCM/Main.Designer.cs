@@ -157,6 +157,7 @@
             this.btnToWeights.TabIndex = 5;
             this.btnToWeights.Text = "Веса";
             this.btnToWeights.UseVisualStyleBackColor = true;
+            this.btnToWeights.Click += new System.EventHandler(this.btnToWeights_Click);
             // 
             // btnSettings
             // 
@@ -167,6 +168,7 @@
             this.btnSettings.TabIndex = 6;
             this.btnSettings.Text = "Настройки";
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnCalc
             // 
@@ -177,6 +179,7 @@
             this.btnCalc.TabIndex = 7;
             this.btnCalc.Text = "Анализ";
             this.btnCalc.UseVisualStyleBackColor = true;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // Main
             // 
