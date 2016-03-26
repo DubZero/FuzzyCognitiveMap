@@ -17,6 +17,9 @@ namespace FCM
         {
             InitializeComponent();
         }
+
+
+
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -47,6 +50,22 @@ namespace FCM
 
                 report.ShowDialog();
             }
+        }
+        // Создание и удаление вершин
+        private void VertexNum_ValueChanged(object sender, EventArgs e)
+        {
+            if(dataGridViewVertex.RowCount < VertexNum.Value)// Добавление строк
+            {
+                dataGridViewVertex.Rows.Add(new DataGridViewRow());
+            }
+            else if(dataGridViewVertex.RowCount == 0) // Исключение при нуле
+            {
+
+            }
+            else // Удаление строк
+            {
+                dataGridViewVertex.Rows.Remove(dataGridViewVertex.Rows[dataGridViewVertex.Rows.Count - 1]);
+            }            
         }
     }
 }
