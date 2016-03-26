@@ -27,6 +27,13 @@ namespace FCM
 
         private void btnToWeights_Click(object sender, EventArgs e)
         {
+            Vertex[] ArrVertex = new Vertex[dataGridViewVertex.Rows.Count];
+            for (int i = 0; i< dataGridViewVertex.Rows.Count;i++)
+            {
+                ArrVertex[i] = new Vertex(Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value), Convert.ToDouble(dataGridViewVertex.Rows[i].Cells[1].Value));
+            }
+
+
             using (Weights weights = new Weights())
             {                
 
