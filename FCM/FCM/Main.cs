@@ -66,7 +66,8 @@ namespace FCM
 
 
             using (Weights weights = new Weights())
-            {              
+            {
+                weights.VertexName = ArrVertex;
                 weights.ShowDialog();
             }
         }

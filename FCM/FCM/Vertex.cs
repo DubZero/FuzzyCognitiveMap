@@ -7,7 +7,7 @@ using System.IO;
 
 namespace FCM
 {
-    class Vertex
+    public class Vertex
     {
         //Поля
         

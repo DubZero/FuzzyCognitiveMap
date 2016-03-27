@@ -153,6 +153,7 @@
             this.MaximumSize = new System.Drawing.Size(442, 313);
             this.Name = "Weights";
             this.Text = "Веса";
+            this.Load += new System.EventHandler(this.Weights_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeights)).EndInit();
