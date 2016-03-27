@@ -52,8 +52,16 @@ namespace FCM
             for (int i = 0; i< dataGridViewVertex.Rows.Count;i++)
             {
                 ArrVertex[i] = new Vertex();
-                ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
-                ArrVertex[i].StartValue = Convert.ToDouble(dataGridViewVertex.Rows[i].Cells[1].Value);
+                try
+                {
+                    ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
+                    ArrVertex[i].StartValue = Convert.ToDouble(dataGridViewVertex.Rows[i].Cells[1].Value);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
 
 
