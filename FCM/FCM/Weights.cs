@@ -16,5 +16,10 @@ namespace FCM
         {
             InitializeComponent();
         }
+
+        private void открытьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace FCM
             List<Vertex> result = new List<Vertex>();
             using (StreamReader sr = new StreamReader(filename))
             {
-                string line;
+                string line = sr.ReadLine();
                 while ((line = sr.ReadLine()) != null)
                 {
                     Vertex p = new Vertex();
@@ -40,7 +40,6 @@ namespace FCM
                     result.Add(p);
                 }
             }
-
             return result;
         }
     }

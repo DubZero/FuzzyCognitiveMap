@@ -58,8 +58,7 @@ namespace FCM
 
 
             using (Weights weights = new Weights())
-            {                
-
+            {              
                 weights.ShowDialog();
             }
         }
@@ -68,7 +67,6 @@ namespace FCM
         {
             using (Set set = new Set())
             {
-
                 set.ShowDialog();
             }
         }
