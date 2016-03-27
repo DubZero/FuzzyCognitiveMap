@@ -35,7 +35,7 @@
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewWeights = new System.Windows.Forms.DataGridView();
-            this.name= new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSaveInput = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -108,7 +108,7 @@
             // name
             // 
             this.name.HeaderText = "name";
-            this.name.Name = "name";           
+            this.name.Name = "name";
             // 
             // textBox1
             // 
@@ -128,6 +128,7 @@
             this.btnSaveInput.TabIndex = 4;
             this.btnSaveInput.Text = "Применить";
             this.btnSaveInput.UseVisualStyleBackColor = true;
+            this.btnSaveInput.Click += new System.EventHandler(this.btnSaveInput_Click);
             // 
             // btnCancel
             // 

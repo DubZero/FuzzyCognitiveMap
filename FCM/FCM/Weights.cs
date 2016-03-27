@@ -41,10 +41,15 @@ namespace FCM
                         dataGridViewWeights.Rows[i].Cells[j].Value = CSV_Struct._Matrix[i,j];                   
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Ошибка загрузки данных!\n", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSaveInput_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

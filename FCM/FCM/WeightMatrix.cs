@@ -30,7 +30,7 @@ namespace FCM
             get { return m; }
 
         }
-        private List<string> _vertexName;
+        private List<string> _vertexName=new List<string>();
         public List<string> _VertexName { get { return _vertexName; } set { _vertexName = value; } }
         
         //конструкторы
