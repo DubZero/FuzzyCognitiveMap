@@ -84,16 +84,16 @@ namespace FCM
         public void SplitWeightCSV(string line, int i)
         {
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
-            for (int j = 1; i<parts.Length;i++)            {
+            for (int j = 1; j<parts.Length;j++)            {
                 
-                _matrix[i,j] = Convert.ToDouble(parts[1]);
+                _matrix[i-1,j-1] = Convert.ToDouble(parts[j]);
             }
         }
         // Считывает первую строчку с названиями концептов
         private void ReadVertexNames(string line)
         {
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
-            for(int i = 1; i < parts.Length-1; i++)
+            for(int i = 1; i < parts.Length; i++)
             {                
                 _vertexName.Add(parts[i]);
             }
@@ -112,12 +112,8 @@ namespace FCM
                 }
                 WeightMatrix matrix = new WeightMatrix(temp._vertexName.Count,temp._vertexName.Count);
                 matrix._vertexName = temp._vertexName;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    int i = 1;                    
-                    matrix.SplitWeightCSV(line,i);                    
-                    i++;
-                }
+                for (int i = 1; (line = sr.ReadLine()) != null; i++)                                                       
+                    matrix.SplitWeightCSV(line,i);                              
                 return matrix;
             }
             

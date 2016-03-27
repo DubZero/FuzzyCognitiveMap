@@ -99,6 +99,8 @@
     <EmbeddedResource Include="Weights.resx">
       <DependentUpon>Weights.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="input\vertex.csv" />
+    <None Include="input\weights.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

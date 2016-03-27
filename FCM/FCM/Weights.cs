@@ -38,7 +38,7 @@ namespace FCM
                     dataGridViewWeights.Rows.Add();
                     dataGridViewWeights.Rows[i].Cells[0].Value = CSV_Struct._VertexName[i]; // заполнение имен концептов вертикально
                     for (int j = 1; j <= CSV_Struct._VertexName.Count;j++)
-                        dataGridViewWeights.Rows[i].Cells[j].Value = CSV_Struct._Matrix[i,j];                   
+                        dataGridViewWeights.Rows[i].Cells[j].Value = CSV_Struct._Matrix[i,j-1];                   
                 }
             }
             catch (Exception ex)
