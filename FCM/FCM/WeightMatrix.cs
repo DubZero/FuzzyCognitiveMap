@@ -30,7 +30,8 @@ namespace FCM
             get { return m; }
 
         }
-        public static string[] VertexName { get; set; }
+        private List<string> _vertexName;
+        public List<string> _VertexName { get { return _vertexName; } set { _vertexName = value; } }
         
         //конструкторы
         public WeightMatrix(double[,] matrix)
@@ -89,25 +90,28 @@ namespace FCM
             }
         }
         // Считывает первую строчку с названиями концептов
-        public void ReadVertexNames(string line)
+        private void ReadVertexNames(string line)
         {
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
-            for(int i = 1; i < parts.Length; i++)
-            {
-                VertexName[i] = parts[i];
+            for(int i = 1; i < parts.Length-1; i++)
+            {                
+                _vertexName.Add(parts[i]);
             }
         }
 
         public static WeightMatrix ReadFile(string filename)
         {            
             using (StreamReader sr = new StreamReader(filename))
-            {
+            {                
                 string line = sr.ReadLine();
-                if(line!= null)
-                {
 
+                WeightMatrix temp = new WeightMatrix();
+                if (line!= null)
+                {
+                    temp.ReadVertexNames(line);
                 }
-                WeightMatrix matrix = new WeightMatrix(VertexName.Length,VertexName.Length);
+                WeightMatrix matrix = new WeightMatrix(temp._vertexName.Count,temp._vertexName.Count);
+                matrix._vertexName = temp._vertexName;
                 while ((line = sr.ReadLine()) != null)
                 {
                     int i = 1;                    
