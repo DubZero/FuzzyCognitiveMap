@@ -30,11 +30,11 @@ namespace FCM
                 {
                     // чтение из файла
                     CSV_Struct = Vertex.ReadFile(openFileDialog1.FileName);
-                }         
+                }
                 //Заполняем dataGridViewVertex 
+                VertexNum.Value= CSV_Struct.Count;
                 for (int i = 0; i <= CSV_Struct.Count - 1; i++)
                 {
-                    dataGridViewVertex.Rows.Add();
                     dataGridViewVertex.Rows[i].Cells[0].Value = CSV_Struct[i].Name;
                     dataGridViewVertex.Rows[i].Cells[1].Value = CSV_Struct[i].StartValue;
                 }
@@ -92,6 +92,7 @@ namespace FCM
         {
             if(dataGridViewVertex.RowCount < VertexNum.Value)// Добавление строк
             {
+                while(dataGridViewVertex.RowCount < VertexNum.Value)
                 dataGridViewVertex.Rows.Add(new DataGridViewRow());
             }
             else if(dataGridViewVertex.RowCount == 0) // Исключение при нуле
@@ -100,7 +101,8 @@ namespace FCM
             }
             else // Удаление строк
             {
-                dataGridViewVertex.Rows.Remove(dataGridViewVertex.Rows[dataGridViewVertex.Rows.Count - 1]);
+                while (dataGridViewVertex.RowCount > VertexNum.Value)
+                    dataGridViewVertex.Rows.Remove(dataGridViewVertex.Rows[dataGridViewVertex.Rows.Count - 1]);
             }            
         }
         
