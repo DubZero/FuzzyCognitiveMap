@@ -14,6 +14,7 @@ namespace FCM
     public partial class Weights : Form
     {
         public Vertex[] VertexName { get; set; }
+        public WeightMatrix Matr { get; set; }
         public Weights()
         {
             InitializeComponent();
@@ -55,7 +56,19 @@ namespace FCM
 
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
-
+            Matr = new WeightMatrix(dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count);
+            try {
+                for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
+                {
+                    for (int j = 1; j <= dataGridViewWeights.Rows.Count; j++)
+                        Matr._Matrix[i, j - 1] = Convert.ToDouble(dataGridViewWeights.Rows[i].Cells[j].Value);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);   
+            };
+            this.Close();
         }
 
         private void Weights_Load(object sender, EventArgs e)
@@ -69,6 +82,11 @@ namespace FCM
                 dataGridViewWeights.Rows.Add();
                 dataGridViewWeights.Rows[i].Cells[0].Value = VertexName[i].Name; // заполнение имен концептов вертикально
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

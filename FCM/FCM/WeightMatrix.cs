@@ -7,7 +7,7 @@ using System.IO;
 
 namespace FCM
 {
-    class WeightMatrix
+    public class WeightMatrix
     {
         //Поля
         private double[,] _matrix;

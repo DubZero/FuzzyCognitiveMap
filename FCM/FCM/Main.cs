@@ -19,7 +19,7 @@ namespace FCM
             InitializeComponent();
         }
 
-
+        public WeightMatrix Weights;
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -64,11 +64,16 @@ namespace FCM
                 }
             }
 
-
-            using (Weights weights = new Weights())
+            //открытие окна весов
+            using (Weights weights_win = new Weights())
             {
-                weights.VertexName = ArrVertex;
-                weights.ShowDialog();
+                weights_win.VertexName = ArrVertex;//передача списка вершин
+                weights_win.FormClosed += (closedSender, closedE) =>
+                {
+                    Weights = weights_win.Matr;//возвращение матрицы весов
+                };
+                weights_win.ShowDialog();
+
             }
         }
 
