@@ -204,8 +204,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(286, 500);
-            this.MinimumSize = new System.Drawing.Size(286, 330);
+            this.MaximumSize = new System.Drawing.Size(286, 700);
+            this.MinimumSize = new System.Drawing.Size(286, 410);
             this.Name = "Main";
             this.Text = "FCM";
             this.menuStrip1.ResumeLayout(false);
