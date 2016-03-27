@@ -112,7 +112,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(13, 219);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -151,7 +152,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridViewWeights);
             this.Controls.Add(this.menuStrip1);
-            this.MaximumSize = new System.Drawing.Size(442, 313);
+            this.MaximumSize = new System.Drawing.Size(99999999, 99999999);
+            this.MinimumSize = new System.Drawing.Size(442, 313);
             this.Name = "Weights";
             this.Text = "Веса";
             this.Load += new System.EventHandler(this.Weights_Load);
