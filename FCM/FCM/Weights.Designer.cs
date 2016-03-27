@@ -34,16 +34,14 @@
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewInput = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewWeights = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSaveInput = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeights)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -72,6 +70,7 @@
             this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
             this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.открытьToolStripMenuItem1.Text = "Открыть";
+            this.открытьToolStripMenuItem1.Click += new System.EventHandler(this.открытьToolStripMenuItem1_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -90,44 +89,26 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
             // 
-            // dataGridViewInput
+            // dataGridViewWeights
             // 
-            this.dataGridViewInput.AllowUserToAddRows = false;
-            this.dataGridViewInput.AllowUserToDeleteRows = false;
-            this.dataGridViewInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewWeights.AllowUserToAddRows = false;
+            this.dataGridViewWeights.AllowUserToDeleteRows = false;
+            this.dataGridViewWeights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInput.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridViewInput.Location = new System.Drawing.Point(13, 28);
-            this.dataGridViewInput.Name = "dataGridViewInput";
-            this.dataGridViewInput.RowHeadersVisible = false;
-            this.dataGridViewInput.Size = new System.Drawing.Size(401, 185);
-            this.dataGridViewInput.TabIndex = 2;
+            this.dataGridViewWeights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewWeights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name});
+            this.dataGridViewWeights.Location = new System.Drawing.Point(13, 28);
+            this.dataGridViewWeights.Name = "dataGridViewWeights";
+            this.dataGridViewWeights.RowHeadersVisible = false;
+            this.dataGridViewWeights.Size = new System.Drawing.Size(401, 185);
+            this.dataGridViewWeights.TabIndex = 2;
             // 
-            // Column1
+            // name
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Column3";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Column4";
-            this.Column4.Name = "Column4";
+            this.name.HeaderText = "name";
+            this.name.Name = "name";
             // 
             // textBox1
             // 
@@ -147,6 +128,7 @@
             this.btnSaveInput.TabIndex = 4;
             this.btnSaveInput.Text = "Применить";
             this.btnSaveInput.UseVisualStyleBackColor = true;
+            this.btnSaveInput.Click += new System.EventHandler(this.btnSaveInput_Click);
             // 
             // btnCancel
             // 
@@ -157,6 +139,7 @@
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // Weights
             // 
@@ -166,14 +149,15 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveInput);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridViewInput);
+            this.Controls.Add(this.dataGridViewWeights);
             this.Controls.Add(this.menuStrip1);
             this.MaximumSize = new System.Drawing.Size(442, 313);
             this.Name = "Weights";
             this.Text = "Веса";
+            this.Load += new System.EventHandler(this.Weights_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeights)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,13 +171,11 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьКакToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.DataGridView dataGridViewInput;
+        private System.Windows.Forms.DataGridView dataGridViewWeights;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSaveInput;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }

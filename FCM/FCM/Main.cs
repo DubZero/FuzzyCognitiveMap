@@ -19,7 +19,7 @@ namespace FCM
             InitializeComponent();
         }
 
-
+        public WeightMatrix Weights;
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -30,11 +30,11 @@ namespace FCM
                 {
                     // чтение из файла
                     CSV_Struct = Vertex.ReadFile(openFileDialog1.FileName);
-                }         
+                }
                 //Заполняем dataGridViewVertex 
+                VertexNum.Value= CSV_Struct.Count;
                 for (int i = 0; i <= CSV_Struct.Count - 1; i++)
                 {
-                    dataGridViewVertex.Rows.Add();
                     dataGridViewVertex.Rows[i].Cells[0].Value = CSV_Struct[i].Name;
                     dataGridViewVertex.Rows[i].Cells[1].Value = CSV_Struct[i].StartValue;
                 }
@@ -52,15 +52,28 @@ namespace FCM
             for (int i = 0; i< dataGridViewVertex.Rows.Count;i++)
             {
                 ArrVertex[i] = new Vertex();
-                ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
-                ArrVertex[i].StartValue = Convert.ToDouble(dataGridViewVertex.Rows[i].Cells[1].Value);
+                try
+                {
+                    ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
+                    ArrVertex[i].StartValue = Convert.ToDouble(dataGridViewVertex.Rows[i].Cells[1].Value);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
 
+            //открытие окна весов
+            using (Weights weights_win = new Weights())
+            {
+                weights_win.VertexName = ArrVertex;//передача списка вершин
+                weights_win.FormClosed += (closedSender, closedE) =>
+                {
+                    Weights = weights_win.Matr;//возвращение матрицы весов
+                };
+                weights_win.ShowDialog();
 
-            using (Weights weights = new Weights())
-            {                
-
-                weights.ShowDialog();
             }
         }
 
@@ -68,7 +81,6 @@ namespace FCM
         {
             using (Set set = new Set())
             {
-
                 set.ShowDialog();
             }
         }
@@ -86,6 +98,7 @@ namespace FCM
         {
             if(dataGridViewVertex.RowCount < VertexNum.Value)// Добавление строк
             {
+                while(dataGridViewVertex.RowCount < VertexNum.Value)
                 dataGridViewVertex.Rows.Add(new DataGridViewRow());
             }
             else if(dataGridViewVertex.RowCount == 0) // Исключение при нуле
@@ -94,7 +107,8 @@ namespace FCM
             }
             else // Удаление строк
             {
-                dataGridViewVertex.Rows.Remove(dataGridViewVertex.Rows[dataGridViewVertex.Rows.Count - 1]);
+                while (dataGridViewVertex.RowCount > VertexNum.Value)
+                    dataGridViewVertex.Rows.Remove(dataGridViewVertex.Rows[dataGridViewVertex.Rows.Count - 1]);
             }            
         }
         
