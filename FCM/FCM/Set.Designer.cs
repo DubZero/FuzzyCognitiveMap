@@ -36,7 +36,17 @@
             this.chbSaveToXls = new System.Windows.Forms.CheckBox();
             this.chbAdnReport = new System.Windows.Forms.CheckBox();
             this.bntApply = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.k1Num = new System.Windows.Forms.NumericUpDown();
+            this.k2Num = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.k1Num)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.k2Num)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,9 +64,12 @@
             this.funcBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.funcBox.FormattingEnabled = true;
+            this.funcBox.Items.AddRange(new object[] {
+            "sigmoid(x) Сигмоидальная функция",
+            "gaussmf(x) Гауссова функция"});
             this.funcBox.Location = new System.Drawing.Point(48, 13);
             this.funcBox.Name = "funcBox";
-            this.funcBox.Size = new System.Drawing.Size(265, 21);
+            this.funcBox.Size = new System.Drawing.Size(369, 21);
             this.funcBox.TabIndex = 1;
             // 
             // groupBox1
@@ -64,11 +77,17 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.k2Num);
+            this.groupBox1.Controls.Add(this.k1Num);
+            this.groupBox1.Controls.Add(this.pictureBox2);
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(13, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 194);
+            this.groupBox1.Size = new System.Drawing.Size(404, 193);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Вид аргумента функции:";
@@ -80,7 +99,6 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(14, 13);
             this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
@@ -90,14 +108,13 @@
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(14, 13);
             this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // chbSaveToXls
             // 
             this.chbSaveToXls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbSaveToXls.AutoSize = true;
-            this.chbSaveToXls.Location = new System.Drawing.Point(13, 244);
+            this.chbSaveToXls.Location = new System.Drawing.Point(13, 243);
             this.chbSaveToXls.Name = "chbSaveToXls";
             this.chbSaveToXls.Size = new System.Drawing.Size(106, 17);
             this.chbSaveToXls.TabIndex = 3;
@@ -108,7 +125,7 @@
             // 
             this.chbAdnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbAdnReport.AutoSize = true;
-            this.chbAdnReport.Location = new System.Drawing.Point(13, 268);
+            this.chbAdnReport.Location = new System.Drawing.Point(13, 267);
             this.chbAdnReport.Name = "chbAdnReport";
             this.chbAdnReport.Size = new System.Drawing.Size(127, 17);
             this.chbAdnReport.TabIndex = 4;
@@ -118,28 +135,88 @@
             // bntApply
             // 
             this.bntApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntApply.Location = new System.Drawing.Point(170, 257);
+            this.bntApply.Location = new System.Drawing.Point(274, 256);
             this.bntApply.Name = "bntApply";
             this.bntApply.Size = new System.Drawing.Size(143, 23);
             this.bntApply.TabIndex = 5;
             this.bntApply.Text = "Применить";
             this.bntApply.UseVisualStyleBackColor = true;
+            this.bntApply.Click += new System.EventHandler(this.bntApply_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::FCM.Properties.Resources._4;
+            this.pictureBox2.InitialImage = global::FCM.Properties.Resources._4;
+            this.pictureBox2.Location = new System.Drawing.Point(27, 105);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(267, 80);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::FCM.Properties.Resources._3;
+            this.pictureBox1.InitialImage = global::FCM.Properties.Resources._3;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(267, 80);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // k1Num
+            // 
+            this.k1Num.Location = new System.Drawing.Point(338, 27);
+            this.k1Num.Name = "k1Num";
+            this.k1Num.Size = new System.Drawing.Size(57, 20);
+            this.k1Num.TabIndex = 4;
+            // 
+            // k2Num
+            // 
+            this.k2Num.Location = new System.Drawing.Point(338, 63);
+            this.k2Num.MinimumSize = new System.Drawing.Size(57, 0);
+            this.k2Num.Name = "k2Num";
+            this.k2Num.Size = new System.Drawing.Size(57, 20);
+            this.k2Num.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(301, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "k1 = ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(301, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "k2 = ";
             // 
             // Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 292);
+            this.ClientSize = new System.Drawing.Size(429, 291);
             this.Controls.Add(this.bntApply);
             this.Controls.Add(this.chbAdnReport);
             this.Controls.Add(this.chbSaveToXls);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.funcBox);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(445, 330);
             this.Name = "Set";
             this.Text = "Настройки";
+            this.Load += new System.EventHandler(this.Set_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.k1Num)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.k2Num)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +232,11 @@
         private System.Windows.Forms.CheckBox chbSaveToXls;
         private System.Windows.Forms.CheckBox chbAdnReport;
         private System.Windows.Forms.Button bntApply;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown k2Num;
+        private System.Windows.Forms.NumericUpDown k1Num;
     }
 }

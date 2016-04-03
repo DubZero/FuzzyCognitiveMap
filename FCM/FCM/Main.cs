@@ -16,12 +16,14 @@ namespace FCM
     public partial class Main : Form
     {
         public Main()
-        {
-            InitializeComponent();
+        {            
+            InitializeComponent();            
         }
 
-        public WeightMatrix Weights;
-        Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
+        public WeightMatrix Weights;       
+        Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");  
+        
+       
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
