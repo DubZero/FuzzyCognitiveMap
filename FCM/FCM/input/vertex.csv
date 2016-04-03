@@ -1,6 +1,11 @@
 name;value
-c1;1
-c2;2
-c3;3
-c4;4
-c5;5
+C1_Sun Insolation;1
+C2_Environmental Temperature;2
+C3_Wind Velocity;3
+C4_Shadows;4
+C5_Wind Turbines;5
+C6_Photovoltaics;6
+C7_Diesel Generator;7
+C8_Batteries;8
+C9_Load;9
+C10_Dilivered Power;10

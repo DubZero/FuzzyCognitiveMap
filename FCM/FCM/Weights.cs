@@ -32,20 +32,36 @@ namespace FCM
                     // чтение из файла                    
                     CSV_Struct = WeightMatrix.ReadFile(openFileDialog2.FileName);
                 }
-                dataGridViewWeights.Columns.Clear();
-                dataGridViewWeights.Rows.Clear();
-                dataGridViewWeights.Columns.Add("name","Имя");
-                // Заполняем названия концептов горизонтально
-                for (int i = 0; i < CSV_Struct._VertexName.Count; i++)
-                   dataGridViewWeights.Columns.Add(CSV_Struct._VertexName[i], CSV_Struct._VertexName[i]); 
-
-                //Заполняем dataGridViewVertex 
-                for (int i = 0; i < CSV_Struct._VertexName.Count; i++)
+                if (CSV_Struct._VertexName.Count() == VertexName.Count())
                 {
-                    dataGridViewWeights.Rows.Add();
-                    dataGridViewWeights.Rows[i].Cells[0].Value = CSV_Struct._VertexName[i]; // заполнение имен концептов вертикально
-                    for (int j = 1; j <= CSV_Struct._VertexName.Count;j++)
-                        dataGridViewWeights.Rows[i].Cells[j].Value = CSV_Struct._Matrix[i,j-1];                   
+                    for(int i=0;i<VertexName.Count();i++)
+                    {
+                        if(CSV_Struct._VertexName[i] != VertexName[i].Name)
+                        {
+                            MessageBox.Show("Неверный входной файл!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    dataGridViewWeights.Columns.Clear();
+                    dataGridViewWeights.Rows.Clear();
+                    dataGridViewWeights.Columns.Add("name", "Имя");
+                    // Заполняем названия концептов горизонтально
+                    for (int i = 0; i < CSV_Struct._VertexName.Count; i++)
+                        dataGridViewWeights.Columns.Add(CSV_Struct._VertexName[i], CSV_Struct._VertexName[i]);
+
+                    //Заполняем dataGridViewVertex 
+                    for (int i = 0; i < CSV_Struct._VertexName.Count; i++)
+                    {
+                        dataGridViewWeights.Rows.Add();
+                        dataGridViewWeights.Rows[i].Cells[0].Value = CSV_Struct._VertexName[i]; // заполнение имен концептов вертикально
+                        for (int j = 1; j <= CSV_Struct._VertexName.Count; j++)
+                            dataGridViewWeights.Rows[i].Cells[j].Value = CSV_Struct._Matrix[i, j - 1];
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Неверный входной файл!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             catch (Exception ex)
