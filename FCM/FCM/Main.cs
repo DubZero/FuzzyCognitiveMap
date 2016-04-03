@@ -114,6 +114,16 @@ namespace FCM
             }
         }
 
+        public void DefaultSettings()
+        {
+            Settings.Function = 1;
+            Settings.ArgFunc = 1;
+            Settings.SaveToXLS = false;
+            Settings.AdvancedReport = false;
+            Settings.k1 = 0.5M;
+            Settings.k2 = 0.5M;
+        }
+
         private void btnSettings_Click(object sender, EventArgs e)
         {
             using (Set set = new Set())
@@ -148,6 +158,10 @@ namespace FCM
                     dataGridViewVertex.Rows.Remove(dataGridViewVertex.Rows[dataGridViewVertex.Rows.Count - 1]);
             }            
         }
-        
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            DefaultSettings();
+        }
     }
 }

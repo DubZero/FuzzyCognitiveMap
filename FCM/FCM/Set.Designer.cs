@@ -31,22 +31,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.funcBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.k2Num = new System.Windows.Forms.NumericUpDown();
+            this.k1Num = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.chbSaveToXls = new System.Windows.Forms.CheckBox();
             this.chbAdnReport = new System.Windows.Forms.CheckBox();
             this.bntApply = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.k1Num = new System.Windows.Forms.NumericUpDown();
-            this.k2Num = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.k2Num)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.k1Num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.k1Num)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.k2Num)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,61 +87,55 @@
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(13, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(404, 193);
+            this.groupBox1.Size = new System.Drawing.Size(404, 189);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Вид аргумента функции:";
             // 
-            // radioButton2
+            // label3
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 107);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(301, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "k2 = ";
             // 
-            // radioButton1
+            // label2
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(301, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "k1 = ";
             // 
-            // chbSaveToXls
+            // k2Num
             // 
-            this.chbSaveToXls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chbSaveToXls.AutoSize = true;
-            this.chbSaveToXls.Location = new System.Drawing.Point(13, 243);
-            this.chbSaveToXls.Name = "chbSaveToXls";
-            this.chbSaveToXls.Size = new System.Drawing.Size(106, 17);
-            this.chbSaveToXls.TabIndex = 3;
-            this.chbSaveToXls.Text = "Сохранить в .xls";
-            this.chbSaveToXls.UseVisualStyleBackColor = true;
+            this.k2Num.DecimalPlaces = 2;
+            this.k2Num.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.k2Num.Location = new System.Drawing.Point(338, 63);
+            this.k2Num.MinimumSize = new System.Drawing.Size(57, 0);
+            this.k2Num.Name = "k2Num";
+            this.k2Num.Size = new System.Drawing.Size(57, 20);
+            this.k2Num.TabIndex = 5;
             // 
-            // chbAdnReport
+            // k1Num
             // 
-            this.chbAdnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chbAdnReport.AutoSize = true;
-            this.chbAdnReport.Location = new System.Drawing.Point(13, 267);
-            this.chbAdnReport.Name = "chbAdnReport";
-            this.chbAdnReport.Size = new System.Drawing.Size(127, 17);
-            this.chbAdnReport.TabIndex = 4;
-            this.chbAdnReport.Text = "Расширенный отчет";
-            this.chbAdnReport.UseVisualStyleBackColor = true;
-            // 
-            // bntApply
-            // 
-            this.bntApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntApply.Location = new System.Drawing.Point(274, 256);
-            this.bntApply.Name = "bntApply";
-            this.bntApply.Size = new System.Drawing.Size(143, 23);
-            this.bntApply.TabIndex = 5;
-            this.bntApply.Text = "Применить";
-            this.bntApply.UseVisualStyleBackColor = true;
-            this.bntApply.Click += new System.EventHandler(this.bntApply_Click);
+            this.k1Num.DecimalPlaces = 2;
+            this.k1Num.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.k1Num.Location = new System.Drawing.Point(338, 27);
+            this.k1Num.Name = "k1Num";
+            this.k1Num.Size = new System.Drawing.Size(57, 20);
+            this.k1Num.TabIndex = 4;
             // 
             // pictureBox2
             // 
@@ -163,60 +157,80 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // k1Num
+            // radioButton2
             // 
-            this.k1Num.Location = new System.Drawing.Point(338, 27);
-            this.k1Num.Name = "k1Num";
-            this.k1Num.Size = new System.Drawing.Size(57, 20);
-            this.k1Num.TabIndex = 4;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(7, 107);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // k2Num
+            // radioButton1
             // 
-            this.k2Num.Location = new System.Drawing.Point(338, 63);
-            this.k2Num.MinimumSize = new System.Drawing.Size(57, 0);
-            this.k2Num.Name = "k2Num";
-            this.k2Num.Size = new System.Drawing.Size(57, 20);
-            this.k2Num.TabIndex = 5;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // label2
+            // chbSaveToXls
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(301, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "k1 = ";
+            this.chbSaveToXls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chbSaveToXls.AutoSize = true;
+            this.chbSaveToXls.Location = new System.Drawing.Point(13, 238);
+            this.chbSaveToXls.Name = "chbSaveToXls";
+            this.chbSaveToXls.Size = new System.Drawing.Size(106, 17);
+            this.chbSaveToXls.TabIndex = 3;
+            this.chbSaveToXls.Text = "Сохранить в .xls";
+            this.chbSaveToXls.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // chbAdnReport
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(301, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "k2 = ";
+            this.chbAdnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chbAdnReport.AutoSize = true;
+            this.chbAdnReport.Location = new System.Drawing.Point(13, 262);
+            this.chbAdnReport.Name = "chbAdnReport";
+            this.chbAdnReport.Size = new System.Drawing.Size(127, 17);
+            this.chbAdnReport.TabIndex = 4;
+            this.chbAdnReport.Text = "Расширенный отчет";
+            this.chbAdnReport.UseVisualStyleBackColor = true;
+            // 
+            // bntApply
+            // 
+            this.bntApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bntApply.Location = new System.Drawing.Point(274, 251);
+            this.bntApply.Name = "bntApply";
+            this.bntApply.Size = new System.Drawing.Size(143, 23);
+            this.bntApply.TabIndex = 5;
+            this.bntApply.Text = "Применить";
+            this.bntApply.UseVisualStyleBackColor = true;
+            this.bntApply.Click += new System.EventHandler(this.bntApply_Click);
             // 
             // Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 291);
+            this.ClientSize = new System.Drawing.Size(429, 286);
             this.Controls.Add(this.bntApply);
             this.Controls.Add(this.chbAdnReport);
             this.Controls.Add(this.chbSaveToXls);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.funcBox);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(445, 330);
+            this.MaximumSize = new System.Drawing.Size(445, 325);
+            this.MinimumSize = new System.Drawing.Size(445, 325);
             this.Name = "Set";
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.Set_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.k2Num)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.k1Num)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.k1Num)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.k2Num)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
