@@ -70,6 +70,7 @@
     <Compile Include="Set.Designer.cs">
       <DependentUpon>Set.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Vertex.cs" />
     <Compile Include="WeightMatrix.cs" />
     <Compile Include="Weights.cs">
