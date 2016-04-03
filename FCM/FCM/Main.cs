@@ -21,7 +21,7 @@ namespace FCM
         }
 
         public WeightMatrix Weights;
-        Regex RE = new Regex(@"(^\d{1,}\.?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
+        Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -30,7 +30,9 @@ namespace FCM
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     // чтение из файла
-                    CSV_Struct = Vertex.ReadFile(openFileDialog1.FileName);
+                    if (fileCheck(openFileDialog1.FileName))
+                        CSV_Struct = Vertex.ReadFile(openFileDialog1.FileName);
+                    else return;
                 }
                 //Заполняем dataGridViewVertex 
                 VertexNum.Value= CSV_Struct.Count;
@@ -45,7 +47,23 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private bool fileCheck(string filename)
+        {
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                string line = sr.ReadLine();
+                string[] parts = line.Split(';');
+                if(parts.Count()==2)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Неверный формат входного файла!","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+        }
         private void btnToWeights_Click(object sender, EventArgs e)
         {
             // Создание объектов Вершина из таблицы dataGridViewVertex
@@ -54,8 +72,12 @@ namespace FCM
             {
                 ArrVertex[i] = new Vertex();
                 try {
-
                     ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
+                    if(ArrVertex[i].Name=="")
+                    {
+                        MessageBox.Show("Не задано имя вершины!\nСтрока " + i + 1.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
                     if (MatchObj.Success)
                         ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
@@ -67,7 +89,7 @@ namespace FCM
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message,"Ошибка!", MessageBoxButtons.OK);
                     return;
                 }
             }

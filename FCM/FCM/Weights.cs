@@ -20,8 +20,7 @@ namespace FCM
             InitializeComponent();
         }
 
-        Regex RE = new Regex(@"(^\d{1,}\.?\d{0,}$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|
-                    ^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
+        Regex RE = new Regex(@"(^-?\d{1,}(,|.)?\d{0,}$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
 
         private void открытьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -68,7 +67,7 @@ namespace FCM
                         Matr._Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
                         else
                         {
-                            MessageBox.Show("Неверные данные!\nСтолбец " + i + 1.ToString()+" Строка "+j+1.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Неверные данные!\nСтрока " + i.ToString()+" Столбец "+j.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
