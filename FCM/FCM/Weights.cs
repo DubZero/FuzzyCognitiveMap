@@ -91,7 +91,8 @@ namespace FCM
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);   
+                MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             };
             this.Close();
         }

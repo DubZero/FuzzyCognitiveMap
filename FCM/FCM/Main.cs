@@ -67,6 +67,11 @@ namespace FCM
         private void btnToWeights_Click(object sender, EventArgs e)
         {
             // Создание объектов Вершина из таблицы dataGridViewVertex
+            if(dataGridViewVertex.Rows.Count==0)
+            {
+                MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Vertex[] ArrVertex = new Vertex[dataGridViewVertex.Rows.Count];
             for (int i = 0; i< dataGridViewVertex.Rows.Count;i++)
             {
@@ -75,7 +80,7 @@ namespace FCM
                     ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
                     if(ArrVertex[i].Name=="")
                     {
-                        MessageBox.Show("Не задано имя вершины!\nСтрока " + i + 1.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Не задано имя вершины!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
@@ -83,7 +88,7 @@ namespace FCM
                         ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
                     else
                     {
-                        MessageBox.Show("Неверные данные!\nСтрока " + i+1.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Неверные данные!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
