@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 // dataGridViewVertex - таблица вершин
 // VertexNumber - количество вершин
 namespace FCM
@@ -20,7 +21,7 @@ namespace FCM
         }
 
         public WeightMatrix Weights;
-
+        Regex RE = new Regex(@"(^\d{1,}\.?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -55,7 +56,14 @@ namespace FCM
                 try {
 
                     ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
-                    ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
+                    Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
+                    if (MatchObj.Success)
+                        ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
+                    else
+                    {
+                        MessageBox.Show("Неверные данные!\nСтрока " + i+1.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 catch (Exception ex)
                 {

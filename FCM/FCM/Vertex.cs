@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace FCM
 {
     public class Vertex
@@ -15,7 +16,6 @@ namespace FCM
         
         public String StartValue{ get; set; }        
         public List<double> Values{get;}
-
 
         // Методы
 

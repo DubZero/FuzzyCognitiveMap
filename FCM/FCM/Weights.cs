@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Text.RegularExpressions;
 
 namespace FCM
 {
@@ -20,7 +20,8 @@ namespace FCM
             InitializeComponent();
         }
 
-        
+        Regex RE = new Regex(@"(^\d{1,}\.?\d{0,}$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|
+                    ^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
 
         private void открытьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -61,7 +62,16 @@ namespace FCM
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
                 {
                     for (int j = 1; j <= dataGridViewWeights.Rows.Count; j++)
+                    {
+                        Match Obj = RE.Match(dataGridViewWeights.Rows[i].Cells[j].Value.ToString());
+                        if(Obj.Success)
                         Matr._Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
+                        else
+                        {
+                            MessageBox.Show("Неверные данные!\nСтолбец " + i + 1.ToString()+" Строка "+j+1.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
                 }
             }
             catch(Exception ex)
