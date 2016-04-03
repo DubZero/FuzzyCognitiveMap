@@ -55,7 +55,7 @@ namespace FCM
                 try {
 
                     ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
-                    ArrVertex[i].StartValue = Convert.ToDouble(dataGridViewVertex.Rows[i].Cells[1].Value);
+                    ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
                 }
                 catch (Exception ex)
                 {

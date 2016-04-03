@@ -61,7 +61,7 @@ namespace FCM
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
                 {
                     for (int j = 1; j <= dataGridViewWeights.Rows.Count; j++)
-                        Matr._Matrix[i, j - 1] = Convert.ToDouble(dataGridViewWeights.Rows[i].Cells[j].Value);
+                        Matr._Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
                 }
             }
             catch(Exception ex)

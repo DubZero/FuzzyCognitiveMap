@@ -10,8 +10,8 @@ namespace FCM
     public class WeightMatrix
     {
         //Поля
-        private double[,] _matrix;
-        public double[,] _Matrix
+        private String[,] _matrix;
+        public String[,] _Matrix
         {
             get { return _matrix; }
             set { _matrix = value; }
@@ -34,7 +34,7 @@ namespace FCM
         public List<string> _VertexName { get { return _vertexName; } set { _vertexName = value; } }
         
         //конструкторы
-        public WeightMatrix(double[,] matrix)
+        public WeightMatrix(String[,] matrix)
         {
             _matrix = matrix;
             n = matrix.GetLength(0);
@@ -48,35 +48,35 @@ namespace FCM
         }
         public WeightMatrix(int N, int M)
         {
-            _matrix = new double[N, M];
+            _matrix = new String[N, M];
             n = N;
             m = M;
         }
         public WeightMatrix()
         {
-            _matrix = new double[0, 0];
+            _matrix = new String[0, 0];
             n = 0;
             m = 0;
         }
 
         //умножение матриц
-        public static WeightMatrix operator *(WeightMatrix mat1, WeightMatrix mat2)
-        {
-            if (mat1.m != mat2.n) throw new Exception("Матрицы нельзя перемножить");
-            WeightMatrix result = new WeightMatrix(mat1.n, mat2.m);
+        //public static WeightMatrix operator *(WeightMatrix mat1, WeightMatrix mat2)
+        //{
+        //    if (mat1.m != mat2.n) throw new Exception("Матрицы нельзя перемножить");
+        //    WeightMatrix result = new WeightMatrix(mat1.n, mat2.m);
 
-            for (int i = 0; i < mat1.n; i++)
-            {
-                for (int j = 0; j < mat2.m; j++)
-                {
-                    for (int k = 0; k < mat2.n; k++)
-                    {
-                        result._matrix[i, j] += mat1._matrix[i, k] * mat2._matrix[k, j];
-                    }
-                }
-            }
-            return result;
-        }
+        //    for (int i = 0; i < mat1.n; i++)
+        //    {
+        //        for (int j = 0; j < mat2.m; j++)
+        //        {
+        //            for (int k = 0; k < mat2.n; k++)
+        //            {
+        //                result._matrix[i, j] += mat1._matrix[i, k] * mat2._matrix[k, j];
+        //            }
+        //        }
+        //    }
+        //    return result;
+        //}
 
         // Методы
 
@@ -86,7 +86,7 @@ namespace FCM
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
             for (int j = 1; j<parts.Length;j++)            {
                 
-                _matrix[i-1,j-1] = Convert.ToDouble(parts[j]);
+                _matrix[i-1,j-1] = parts[j];
             }
         }
         // Считывает первую строчку с названиями концептов

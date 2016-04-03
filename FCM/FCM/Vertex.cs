@@ -13,7 +13,7 @@ namespace FCM
         
         public String Name { get; set; }
         
-        public double StartValue{ get; set; }        
+        public String StartValue{ get; set; }        
         public List<double> Values{get;}
 
 
@@ -24,7 +24,7 @@ namespace FCM
         {          
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
             Name = parts[0];
-            StartValue = Convert.ToDouble(parts[1]);
+            StartValue = parts[1];
         }
 
         public static List<Vertex> ReadFile(string filename)
