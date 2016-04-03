@@ -43,6 +43,7 @@
             this.btnToWeights = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnCalc = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VertexNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVertex)).BeginInit();
@@ -68,13 +69,13 @@
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             this.открытьToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.открытьToolStripMenuItem.Text = "Файл";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem1
             // 
             this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
             this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.открытьToolStripMenuItem1.Text = "Открыть";
+            this.открытьToolStripMenuItem1.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -111,6 +112,7 @@
             this.VertexNum.Name = "VertexNum";
             this.VertexNum.Size = new System.Drawing.Size(128, 20);
             this.VertexNum.TabIndex = 2;
+            this.VertexNum.ValueChanged += new System.EventHandler(this.VertexNum_ValueChanged);
             // 
             // label2
             // 
@@ -123,6 +125,9 @@
             // 
             // dataGridViewVertex
             // 
+            this.dataGridViewVertex.AllowUserToAddRows = false;
+            this.dataGridViewVertex.AllowUserToDeleteRows = false;
+            this.dataGridViewVertex.AllowUserToResizeRows = false;
             this.dataGridViewVertex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -133,7 +138,7 @@
             this.dataGridViewVertex.Location = new System.Drawing.Point(13, 73);
             this.dataGridViewVertex.Name = "dataGridViewVertex";
             this.dataGridViewVertex.RowHeadersVisible = false;
-            this.dataGridViewVertex.Size = new System.Drawing.Size(245, 150);
+            this.dataGridViewVertex.Size = new System.Drawing.Size(245, 217);
             this.dataGridViewVertex.TabIndex = 4;
             // 
             // c1
@@ -151,7 +156,7 @@
             // btnToWeights
             // 
             this.btnToWeights.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnToWeights.Location = new System.Drawing.Point(13, 230);
+            this.btnToWeights.Location = new System.Drawing.Point(13, 318);
             this.btnToWeights.Name = "btnToWeights";
             this.btnToWeights.Size = new System.Drawing.Size(120, 23);
             this.btnToWeights.TabIndex = 5;
@@ -162,7 +167,7 @@
             // btnSettings
             // 
             this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSettings.Location = new System.Drawing.Point(138, 230);
+            this.btnSettings.Location = new System.Drawing.Point(138, 318);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(120, 23);
             this.btnSettings.TabIndex = 6;
@@ -173,7 +178,7 @@
             // btnCalc
             // 
             this.btnCalc.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCalc.Location = new System.Drawing.Point(13, 260);
+            this.btnCalc.Location = new System.Drawing.Point(13, 348);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(245, 23);
             this.btnCalc.TabIndex = 7;
@@ -181,11 +186,15 @@
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "\"CSV files|*.csv*|Все файлы|*.*\"";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 291);
+            this.ClientSize = new System.Drawing.Size(270, 379);
             this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnToWeights);
@@ -195,8 +204,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(286, 500);
-            this.MinimumSize = new System.Drawing.Size(286, 330);
+            this.MaximumSize = new System.Drawing.Size(286, 700);
+            this.MinimumSize = new System.Drawing.Size(286, 410);
             this.Name = "Main";
             this.Text = "FCM";
             this.menuStrip1.ResumeLayout(false);
@@ -225,6 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

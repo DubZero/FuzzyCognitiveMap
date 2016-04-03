@@ -1,0 +1,11 @@
+name;C1_Sun Insolation;C2_Environmental Temperature;C3_Wind Velocity;C4_Shadows;C5_Wind Turbines;C6_Photovoltaics;C7_Diesel Generator;C8_Batteries;C9_Load;C10_Dilivered Power
+C1_Sun Insolation;0;0,25;0;0;0;0,87;0;0,5;0;0
+C2_Environmental Temperature;0;0;0;0;0;0,25;0;-0,1;0;0
+C3_Wind Velocity;0;-0,4;0;0;0,72;0,3;0;0,1;0;0
+C4_Shadows;-0,62;-0,1;0;0;0;-0,4;0;0;0;0
+C5_Wind Turbines;0;0;0;0;0;0;-0,2;0,17;0;0,24
+C6_Photovoltaics;0;0;0;0;0;0;-0,2;0,13;0;0,3
+C7_Diesel Generator;0;0;0;0;0;0;0;0;0;0,16
+C8_Batteries;0;0;0;0;0;0;-0,15;0;0;0,16
+C9_Load;0;0;0;0;0,24;0,3;0,11;0,16;0;0
+C10_Dilivered Power;0;0;0;0;0;0;0;0;0;0

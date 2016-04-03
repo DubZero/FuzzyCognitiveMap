@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ZGControlTestVB", "ZGControlTestVB.vbproj", "{472E8937-CA7E-43FF-AFBE-896874A5A624}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{472E8937-CA7E-43FF-AFBE-896874A5A624}.Debug.ActiveCfg = Debug|.NET
+		{472E8937-CA7E-43FF-AFBE-896874A5A624}.Debug.Build.0 = Debug|.NET
+		{472E8937-CA7E-43FF-AFBE-896874A5A624}.Release.ActiveCfg = Release|.NET
+		{472E8937-CA7E-43FF-AFBE-896874A5A624}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -46,7 +46,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="ZedGraph">
-      <HintPath>..\..\..\..\..\..\..\..\Учеба\ZedGraph.dll</HintPath>
+      <HintPath>..\ZedGraph_Control_Test\ZedGraph.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +71,7 @@
       <DependentUpon>Set.cs</DependentUpon>
     </Compile>
     <Compile Include="Vertex.cs" />
+    <Compile Include="WeightMatrix.cs" />
     <Compile Include="Weights.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,8 @@
     <EmbeddedResource Include="Weights.resx">
       <DependentUpon>Weights.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="input\vertex.csv" />
+    <None Include="input\weights.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
