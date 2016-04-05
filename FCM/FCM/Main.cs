@@ -206,7 +206,7 @@ namespace FCM
             
             using (Report report = new Report())
             {
-
+                report.Vertexes = ArrVertex;
                 report.ShowDialog();
             }
         }
