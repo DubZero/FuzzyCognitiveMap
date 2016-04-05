@@ -16,7 +16,12 @@ namespace FCM
             get { return _matrix; }
             set { _matrix = value; }
         }
-
+        private double[,] _matrixVal;
+        public double[,] _MatrixVal
+        {
+            get { return _matrixVal; }
+            set { _matrixVal = value; }
+        }
         private int n;//количество строк матрицы
         public int N
         {
@@ -49,6 +54,7 @@ namespace FCM
         public WeightMatrix(int N, int M)
         {
             _matrix = new String[N, M];
+            _matrixVal = new double[N,M];
             n = N;
             m = M;
         }

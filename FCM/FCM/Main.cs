@@ -21,9 +21,10 @@ namespace FCM
         }
 
         public WeightMatrix Weights;       
-        Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");  
-        
-       
+        Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
+        Vertex[] ArrVertex;
+
+
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -74,7 +75,7 @@ namespace FCM
                 MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Vertex[] ArrVertex = new Vertex[dataGridViewVertex.Rows.Count];
+            ArrVertex = new Vertex[dataGridViewVertex.Rows.Count];
             for (int i = 0; i< dataGridViewVertex.Rows.Count;i++)
             {
                 ArrVertex[i] = new Vertex();
@@ -113,7 +114,42 @@ namespace FCM
 
             }
         }
+        public void FromLingToValue()
+        {
+            // Создание и заполнение Hash(словарей) значений в таблицах
+            Dictionary<string,double> Hash = new Dictionary<string, double>();
+            String[] LingVal1 = { "z", "vvl", "vl", "l", "m", "h", "vh", "vvh", "o" };
+            double[] Value1 = { 0.0, 0.1, 0.2, 0.35, 0.5, 0.65, 0.8, 0.9, 1.0 };
+            for (int i = 0; i < LingVal1.Length; i++)
+                Hash.Add(LingVal1[i], Value1[i]);
+            String[] LingVal2 = { "NegativeVeryStrong", "NegativeStrong", "NegativeMedium", "NegativeWeak", "Zero", "PositiveWeak", "PositiveMedium", "PositiveStrong", "PositiveVeryStrong" };
+            double[] Value2 = { -1.0, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1.0 };
+            for (int i = 0; i < LingVal2.Length; i++)
+                Hash.Add(LingVal2[i], Value2[i]);
 
+            for (int i = 0; i < ArrVertex.Count(); i++)
+            {
+                if (Hash.ContainsKey(ArrVertex[i].StartValue))
+                {
+                    ArrVertex[i].Values.Add(Hash[ArrVertex[i].StartValue]);
+                }
+                else
+                {
+                    ArrVertex[i].Values.Add(double.Parse(ArrVertex[i].StartValue));
+                }
+                for(int j=0;j<ArrVertex.Count();j++)
+                {
+                    if (Hash.ContainsKey(Weights._Matrix[i,j]))
+                    {
+                        Weights._MatrixVal[i, j]=Hash[Weights._Matrix[i, j]];
+                    }
+                    else
+                    {
+                        Weights._MatrixVal[i, j] = double.Parse(Weights._Matrix[i, j]);
+                    }
+                }
+            }
+        }
         public void DefaultSettings()
         {
             Settings.Function = 1;
@@ -131,9 +167,43 @@ namespace FCM
                 set.ShowDialog();
             }
         }
+        private double argument(int i)
+        {
+            double sum=0;
+            if(Settings.ArgFunc==1)
+            {
+                for(int j=0;j< ArrVertex.Count();j++)
+                {
+                   if(i!=j)
+                   sum += ArrVertex[j].Values[ArrVertex[i].Values.Count() - 1] *Weights._MatrixVal[j,i];
+                }
+                return (double)(Settings.k1) *sum+(double)Settings.k2*(ArrVertex[i].Values.Count()-1);
+            }
+            return 0;
+        }
+
+        private double func(double x)
+        {
+            if (Settings.Function == 1)
+            {
+                return 1 / (1 + Math.Exp(-x));
+            }
+            else return 0;
+        }
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
+            double x;
+            FromLingToValue();
+            for(int j=0;j<20;j++)
+            for (int i = 0; i < ArrVertex.Count(); i++)
+
+               // do
+                {
+                    x = argument(i);
+                    ArrVertex[i].Values.Add(func(x));
+                }// while (Math.Abs(ArrVertex[i].Values[ArrVertex[i].Values.Count - 1] - ArrVertex[i].Values[ArrVertex[i].Values.Count - 2])>0.001);
+            
             using (Report report = new Report())
             {
 

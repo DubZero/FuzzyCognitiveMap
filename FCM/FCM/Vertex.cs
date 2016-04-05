@@ -14,11 +14,11 @@ namespace FCM
         
         public String Name { get; set; }
         
-        public String StartValue{ get; set; }        
-        public List<double> Values{get;}
-
+        public String StartValue{ get; set; }
+        public List<double> Values { get { return values; } set { values = value; } }
+        // Values = new List<double>();
         // Методы
-
+        public List<double> values = new List<double>();
         // разделитель колонок из файла CSV
         public void SplitCSV(string line)
         {          
