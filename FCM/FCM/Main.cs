@@ -210,6 +210,11 @@ namespace FCM
             using (Report report = new Report())
             {
                 report.Vertexes = ArrVertex;
+                report.FormClosed += (closedSender, closedE) =>
+                {
+                    foreach(Vertex vert in ArrVertex)
+                        vert.Clr();//возвращение матрицы весов
+                };
                 report.ShowDialog();
             }
         }

@@ -31,9 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.reportTable = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.zedGraph = new ZedGraph.ZedGraphControl();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportTable)).BeginInit();
@@ -79,6 +79,11 @@
             this.reportTable.Size = new System.Drawing.Size(602, 337);
             this.reportTable.TabIndex = 0;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.zedGraph);
@@ -99,13 +104,8 @@
             this.zedGraph.Location = new System.Drawing.Point(0, 0);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.PointValueFormat = "G";
-            this.zedGraph.Size = new System.Drawing.Size(614, 349);
+            this.zedGraph.Size = new System.Drawing.Size(614, 396);
             this.zedGraph.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
             // 
             // Report
             // 

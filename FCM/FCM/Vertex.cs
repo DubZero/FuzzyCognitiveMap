@@ -26,7 +26,10 @@ namespace FCM
             Name = parts[0];
             StartValue = parts[1];
         }
-
+        public void Clr()
+        {
+            values.Clear();
+        }
         public static List<Vertex> ReadFile(string filename)
         {
             List<Vertex> result = new List<Vertex>();

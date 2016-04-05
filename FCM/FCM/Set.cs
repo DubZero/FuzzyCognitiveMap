@@ -16,13 +16,12 @@ namespace FCM
         {
             InitializeComponent();
         }
-        
-        private bool SaveSets = false;
+
         
 
         private void bntApply_Click(object sender, EventArgs e)
         {
-            //SaveSets = true;
+            
             if (k1Num.Value + k2Num.Value != 1 && radioButton1.Checked)
             {
                 MessageBox.Show("Сумма коэффициентов k1 и k2 должна быть равна 1!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
