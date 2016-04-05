@@ -167,7 +167,7 @@ namespace FCM
                 set.ShowDialog();
             }
         }
-        private double argument(int i)
+        private double argument(int i,int t)
         {
             double sum=0;
             if(Settings.ArgFunc==1)
@@ -175,9 +175,9 @@ namespace FCM
                 for(int j=0;j< ArrVertex.Count();j++)
                 {
                    if(i!=j)
-                   sum += ArrVertex[j].Values[ArrVertex[i].Values.Count() - 1] *Weights._MatrixVal[j,i];
+                   sum += ArrVertex[j].Values[t-1] *Weights._MatrixVal[j,i];
                 }
-                return (double)(Settings.k1) *sum+(double)Settings.k2*(ArrVertex[i].Values.Count()-1);
+                return (double)(Settings.k1) *sum+(double)Settings.k2*(ArrVertex[i].Values[t-1]);
             }
             return 0;
         }
@@ -195,15 +195,18 @@ namespace FCM
         {
             double x;
             FromLingToValue();
-            for(int j=0;j<20;j++)
-            for (int i = 0; i < ArrVertex.Count(); i++)
-
-               // do
+            bool check = false;
+            for (int j = 1; !check; j++)
+            {
+                check = true;
+                for (int i = 0; i < ArrVertex.Count(); i++)
                 {
-                    x = argument(i);
+                    x = argument(i, j);
                     ArrVertex[i].Values.Add(func(x));
-                }// while (Math.Abs(ArrVertex[i].Values[ArrVertex[i].Values.Count - 1] - ArrVertex[i].Values[ArrVertex[i].Values.Count - 2])>0.001);
-            
+                    if (Math.Abs(ArrVertex[i].Values[j] - ArrVertex[i].Values[j - 1]) > 0.001)
+                        check = false;
+                }
+            }          
             using (Report report = new Report())
             {
                 report.Vertexes = ArrVertex;

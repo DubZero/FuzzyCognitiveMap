@@ -23,14 +23,16 @@ namespace FCM
             for (int i = 0; i < Vertexes.Count(); i++)
             {
                 reportTable.Columns.Add(Vertexes[i].Name, Vertexes[i].Name);
-                reportTable.Rows.Add();
+                
             }
+            for(int j = 0; j < Vertexes[0].Values.Count(); j++)
+            reportTable.Rows.Add();
             for(int i=0;i<Vertexes.Count();i++)
             {
-                for (int j = 0; j < Vertexes.Count(); j++)
+                for (int j = 0; j < Vertexes[0].Values.Count(); j++)
                 {
                     reportTable[0, j].Value = j;
-                    reportTable[i + 1, j].Value = Vertexes[i].Values[j];
+                    reportTable[i + 1, j].Value = Math.Round(Vertexes[i].Values[j],3);
                 }
             }
             
