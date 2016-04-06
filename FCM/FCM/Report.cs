@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
+using System.Threading;
 
 namespace FCM
 {
@@ -42,13 +44,14 @@ namespace FCM
             
         }
 
-        private void DrawGraph()
+        public void DrawGraph()
         {
             GraphPane pane = zedGraph.GraphPane;
-            
+            pane.Title = "Analysis Chart";
             pane.CurveList.Clear();
 
-
+            pane.XAxis.Title = "Time";
+            pane.YAxis.Title = "Nodes value";
             PointPairList list = new PointPairList();
             for (int j = 1; j < reportTable.ColumnCount; j++)
             {
@@ -59,15 +62,27 @@ namespace FCM
                     double y = Convert.ToDouble(reportTable[j, i].Value);
                     list.Add(x, y);
                 }
-
-                LineItem myCurve = pane.AddCurve("1", list, Color.Red, SymbolType.Plus);
-                myCurve.Line.Width = 3.0f;
+                Random randomGen = new Random();
+                int RedComponent = randomGen.Next(255);
+                Thread.Sleep(4);
+                int GreenComponent = randomGen.Next(255);
+                Thread.Sleep(4);
+                int BlueComponent = randomGen.Next(255);
+                Thread.Sleep(4);
+                Color randomColor = Color.FromArgb(RedComponent, GreenComponent, BlueComponent);
+                LineItem myCurve = pane.AddCurve(Vertexes[j-1].Name, list, randomColor, SymbolType.None);
+                myCurve.Line.Width = 2.0f;
                 list.Clear();
+                
             }
             
             zedGraph.AxisChange();
             zedGraph.Invalidate();
         }
-        
+
+        public void SaveButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
