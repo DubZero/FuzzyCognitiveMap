@@ -45,8 +45,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ZedGraph">
-      <HintPath>..\ZedGraph_Control_Test\ZedGraph.dll</HintPath>
+    <Reference Include="ZedGraph, Version=1.0.1812.29779, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ZedGraph.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

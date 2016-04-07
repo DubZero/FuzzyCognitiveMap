@@ -82,7 +82,37 @@ namespace FCM
 
         public void SaveButton_Click(object sender, EventArgs e)
         {
-            
+            // ДИалог выбора имени файла создаем вручную
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                // Получием панель по ее индексу
+                GraphPane pane = zedGraph.GraphPane;
+
+                // Получаем картинку, соответствующую панели
+                Bitmap bmp = pane.Image;
+
+                // Сохраняем картинку средствами класса Bitmap
+                // Формат картинки выбирается исходя из имени выбранного файла
+                if (dlg.FileName.EndsWith(".png"))
+                {
+                    bmp.Save(dlg.FileName, ImageFormat.Png);
+                }
+                else if (dlg.FileName.EndsWith(".jpg") || dlg.FileName.EndsWith(".jpeg"))
+                {
+                    bmp.Save(dlg.FileName, ImageFormat.Jpeg);
+                }
+                else if (dlg.FileName.EndsWith(".bmp"))
+                {
+                    bmp.Save(dlg.FileName, ImageFormat.Bmp);
+                }
+                else
+                {
+                    bmp.Save(dlg.FileName);
+                }
+            }
         }
     }
 }
