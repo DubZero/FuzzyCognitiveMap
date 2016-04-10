@@ -19,7 +19,7 @@ namespace FCM
         }
 
         public WeightMatrix Weights;       
-        Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
+        Regex RE = new Regex(@"(^\d{1,}(,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
         Vertex[] ArrVertex;
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,14 +85,14 @@ namespace FCM
                         MessageBox.Show("Не задано имя вершины!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
-                    if (MatchObj.Success)
-                        ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
-                    else
-                    {
-                        MessageBox.Show("Неверные данные!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    //Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
+                    //if (MatchObj.Success)
+                    //    ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
+                    //else
+                    //{
+                    //    MessageBox.Show("Неверные данные!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+                    //}
                 }
                 catch (Exception ex)
                 {
@@ -198,8 +198,23 @@ namespace FCM
         private void btnCalc_Click(object sender, EventArgs e)
         {
             double x;
-            FromLingToValue();
             bool check = false;
+            for(int i=0;i<ArrVertex.Count();i++)
+            {
+                ArrVertex[i].Values.Clear();
+            }
+            for (int i = 0; i < dataGridViewVertex.Rows.Count; i++)
+            {
+                    Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
+                    if (MatchObj.Success)
+                        ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
+                    else
+                    {
+                        MessageBox.Show("Неверные данные!\nСтрока " + (i + 1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+            }
+            FromLingToValue();
             for (int j = 1; !check; j++)
             {
                 check = true;
