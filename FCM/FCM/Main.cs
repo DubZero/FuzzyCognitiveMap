@@ -170,6 +170,20 @@ namespace FCM
                 set.ShowDialog();
             }
         }
+
+        //проверка соответствия содержимого матрицы весов и списка концептов
+        bool CheckMatch()
+        {
+            if(ArrVertex.Count()== dataGridViewVertex.Rows.Count)
+            {
+                for (int i = 0; i < ArrVertex.Count(); i++)
+                    if (ArrVertex[i].Name != dataGridViewVertex.Rows[i].Cells[0].Value.ToString())
+                        return false;
+                return true;
+            }
+            return false;
+        }
+
         // Аргументы функции для расчета
         private double argument(int i,int t)
         {
@@ -199,7 +213,30 @@ namespace FCM
         {
             double x;
             bool check = false;
-            for(int i=0;i<ArrVertex.Count();i++)
+            if (dataGridViewVertex.Rows.Count == 0)
+            {
+                MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Weights == null)
+            {
+                MessageBox.Show("Не заданы веса!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                if(Weights._Matrix == null)
+                {
+                    MessageBox.Show("Не заданы веса!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if(!CheckMatch())
+            {
+                MessageBox.Show("Данные о вершинах изменились!\nНеобходимо задать веса заново", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            for (int i=0;i<ArrVertex.Count();i++)
             {
                 ArrVertex[i].Values.Clear();
             }

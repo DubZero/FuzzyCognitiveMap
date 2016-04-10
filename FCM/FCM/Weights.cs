@@ -72,7 +72,7 @@ namespace FCM
         // Сохраниение данных в экземпляре
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
-            Matr = new WeightMatrix(dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count);
+            string[,] _Matrix = new string[dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count];
             try {
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
                 {
@@ -80,7 +80,7 @@ namespace FCM
                     {
                         Match Obj = RE.Match(dataGridViewWeights.Rows[i].Cells[j].Value.ToString());
                         if(Obj.Success)
-                        Matr._Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
+                        _Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
                         else
                         {
                             MessageBox.Show("Неверные данные!\nСтрока " + i.ToString()+" Столбец "+j.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,6 +94,8 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
+            Matr = new WeightMatrix(dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count);
+            Matr._Matrix = _Matrix;
             this.Close();
         }
         
