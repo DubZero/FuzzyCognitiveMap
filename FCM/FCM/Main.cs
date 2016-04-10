@@ -9,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-// dataGridViewVertex - таблица вершин
-// VertexNumber - количество вершин
 namespace FCM
 {
     public partial class Main : Form
@@ -23,7 +21,6 @@ namespace FCM
         public WeightMatrix Weights;       
         Regex RE = new Regex(@"(^\d{1,}(.|,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
         Vertex[] ArrVertex;
-
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -50,6 +47,7 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Проверка файла с вершинами
         private bool fileCheck(string filename)
         {
             using (StreamReader sr = new StreamReader(filename))
@@ -67,6 +65,7 @@ namespace FCM
                 }
             }
         }
+        // Переход на окно "Веса"
         private void btnToWeights_Click(object sender, EventArgs e)
         {
             // Создание объектов Вершина из таблицы dataGridViewVertex
@@ -114,6 +113,7 @@ namespace FCM
 
             }
         }
+        // Перевод лингвистических значений в численные
         public void FromLingToValue()
         {
             // Создание и заполнение Hash(словарей) значений в таблицах
@@ -150,9 +150,11 @@ namespace FCM
                 }
             }
         }
+
+        // Настройки для расчетов по умолчанию
         public void DefaultSettings()
         {
-            Settings.Function = 1;
+            Settings.Function = 0;
             Settings.ArgFunc = 1;
             Settings.SaveToXLS = false;
             Settings.AdvancedReport = false;
@@ -160,6 +162,7 @@ namespace FCM
             Settings.k2 = 0.5M;
         }
 
+        // Переход на окно настроек
         private void btnSettings_Click(object sender, EventArgs e)
         {
             using (Set set = new Set())
@@ -167,6 +170,7 @@ namespace FCM
                 set.ShowDialog();
             }
         }
+        // Аргументы функции для расчета
         private double argument(int i,int t)
         {
             double sum=0;
@@ -181,16 +185,16 @@ namespace FCM
             }
             return 0;
         }
-
+        // Варианты функций для расчета
         private double func(double x)
         {
-            if (Settings.Function == 1)
+            if (Settings.Function == 0)// Сигмоидальная функция
             {
                 return 1 / (1 + Math.Exp(-x));
             }
             else return 0;
         }
-
+        // Переход к окну Анализ
         private void btnCalc_Click(object sender, EventArgs e)
         {
             double x;

@@ -10,7 +10,7 @@ namespace FCM
     public class WeightMatrix
     {
         //Поля
-        private String[,] _matrix;
+        private String[,] _matrix; // матрицы значений связей концептов
         public String[,] _Matrix
         {
             get { return _matrix; }
@@ -38,7 +38,7 @@ namespace FCM
         private List<string> _vertexName=new List<string>();
         public List<string> _VertexName { get { return _vertexName; } set { _vertexName = value; } }
         
-        //конструкторы
+        // Конструкторы
         public WeightMatrix(String[,] matrix)
         {
             _matrix = matrix;
@@ -64,26 +64,6 @@ namespace FCM
             n = 0;
             m = 0;
         }
-
-        //умножение матриц
-        //public static WeightMatrix operator *(WeightMatrix mat1, WeightMatrix mat2)
-        //{
-        //    if (mat1.m != mat2.n) throw new Exception("Матрицы нельзя перемножить");
-        //    WeightMatrix result = new WeightMatrix(mat1.n, mat2.m);
-
-        //    for (int i = 0; i < mat1.n; i++)
-        //    {
-        //        for (int j = 0; j < mat2.m; j++)
-        //        {
-        //            for (int k = 0; k < mat2.n; k++)
-        //            {
-        //                result._matrix[i, j] += mat1._matrix[i, k] * mat2._matrix[k, j];
-        //            }
-        //        }
-        //    }
-        //    return result;
-        //}
-
         // Методы
 
         // разделитель колонок из файла CSV
@@ -104,7 +84,7 @@ namespace FCM
                 _vertexName.Add(parts[i]);
             }
         }
-
+        // Считывание значений связей из файла CSV
         public static WeightMatrix ReadFile(string filename)
         {            
             using (StreamReader sr = new StreamReader(filename))

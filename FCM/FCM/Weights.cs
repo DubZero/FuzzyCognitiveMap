@@ -19,12 +19,12 @@ namespace FCM
         {
             InitializeComponent();
         }
-
+        // Рег. выражение для проверки значений связей
         Regex RE = new Regex(@"(^-?\d{1,}(,|.)?\d{0,}$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
-
+        // Считывание данных через файл
         private void открытьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            try
+            try 
             {
                 WeightMatrix CSV_Struct = new WeightMatrix();
                 if (openFileDialog2.ShowDialog() == DialogResult.OK)
@@ -69,7 +69,7 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Сохраниение данных в экземпляре
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
             Matr = new WeightMatrix(dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count);
@@ -96,7 +96,7 @@ namespace FCM
             };
             this.Close();
         }
-
+        
         private void Weights_Load(object sender, EventArgs e)
         {
             // Заполняем названия концептов горизонтально

@@ -20,7 +20,7 @@ namespace FCM
         {
             InitializeComponent();
         }
-
+        // Заполнение таблицы отчета
         private void Report_Load(object sender, EventArgs e)
         {
             reportTable.Rows.Clear();
@@ -43,7 +43,7 @@ namespace FCM
             DrawGraph();
             
         }
-
+        // Отрисовка графика
         public void DrawGraph()
         {
             GraphPane pane = zedGraph.GraphPane;
@@ -62,6 +62,7 @@ namespace FCM
                     double y = Convert.ToDouble(reportTable[j, i].Value);
                     list.Add(x, y);
                 }
+                // Слип для генерации новых чисел P.S.(сид генерации берется из времени)
                 Random randomGen = new Random();
                 int RedComponent = randomGen.Next(255);
                 Thread.Sleep(4);
@@ -79,7 +80,7 @@ namespace FCM
             zedGraph.AxisChange();
             zedGraph.Invalidate();
         }
-
+        // Сохранение графика в файл
         public void SaveButton_Click(object sender, EventArgs e)
         {
             // ДИалог выбора имени файла создаем вручную

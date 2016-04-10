@@ -15,13 +15,10 @@ namespace FCM
         public Set()
         {
             InitializeComponent();
-        }
-
-        
-
+        }        
+        // Сохранение настроек 
         private void bntApply_Click(object sender, EventArgs e)
-        {
-            
+        {            
             if (k1Num.Value + k2Num.Value != 1 && radioButton1.Checked)
             {
                 MessageBox.Show("Сумма коэффициентов k1 и k2 должна быть равна 1!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -38,12 +35,9 @@ namespace FCM
             Settings.k2 = k2Num.Value;
             this.Close();                     
         }
-
+        // Считывание настроек с окна
         private void Set_Load(object sender, EventArgs e)
         {
-            
-            //if (!SaveSets)            
-            //    DefaultSettings();
             funcBox.SelectedIndex = Settings.Function;
             if (Settings.ArgFunc == 1)
                 radioButton1.Checked = true;
@@ -60,7 +54,6 @@ namespace FCM
                 k1Num.Enabled = false;
                 k2Num.Enabled = false;
             }
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
