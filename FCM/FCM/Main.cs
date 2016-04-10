@@ -19,7 +19,7 @@ namespace FCM
         }
 
         public WeightMatrix Weights;       
-        Regex RE = new Regex(@"(^\d{1,}(,)?\d{0,}$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
+        Regex RE = new Regex(@"(^0(,\d{0,})?$|^1(,(0))?$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
         Vertex[] ArrVertex;
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)

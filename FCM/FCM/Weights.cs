@@ -20,7 +20,7 @@ namespace FCM
             InitializeComponent();
         }
         // Рег. выражение для проверки значений связей
-        Regex RE = new Regex(@"(^-?\d{1,}(,)?\d{0,}$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
+        Regex RE = new Regex(@"(^-?(0)(,\d{0,})?$|^-?1(,(0))?$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
         // Считывание данных через файл
         private void открытьToolStripMenuItem1_Click(object sender, EventArgs e)
         {

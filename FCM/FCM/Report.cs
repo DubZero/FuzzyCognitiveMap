@@ -30,7 +30,7 @@ namespace FCM
                 
             }
             for(int j = 0; j < Vertexes[0].Values.Count(); j++)
-            if(Vertexes.Length > reportTable.RowCount)
+            if(Vertexes[0].Values.Count() > reportTable.RowCount)
                 reportTable.Rows.Add();
             for(int i=0;i<Vertexes.Count();i++)
             {
