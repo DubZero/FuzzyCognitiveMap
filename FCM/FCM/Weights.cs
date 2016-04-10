@@ -101,14 +101,25 @@ namespace FCM
         
         private void Weights_Load(object sender, EventArgs e)
         {
-            // Заполняем названия концептов горизонтально
+                // Заполняем названия концептов горизонтально
             for (int i = 0; i < VertexName.Count(); i++)
                 dataGridViewWeights.Columns.Add(VertexName[i].Name, VertexName[i].Name);
-            //Заполняем dataGridViewVertex 
+                //Заполняем dataGridViewVertex 
             for (int i = 0; i < VertexName.Count(); i++)
             {
                 dataGridViewWeights.Rows.Add();
                 dataGridViewWeights.Rows[i].Cells[0].Value = VertexName[i].Name; // заполнение имен концептов вертикально
+            }
+            
+            if (Matr != null)
+            {
+                for (int i = 0; i < Matr.N; i++)
+                {
+                    for (int j = 1; j <= Matr.N; j++)
+                    {
+                        dataGridViewWeights.Rows[i].Cells[j].Value = Matr._Matrix[i, j - 1];
+                    }
+                }
             }
         }
 

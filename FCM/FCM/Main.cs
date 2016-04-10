@@ -74,37 +74,44 @@ namespace FCM
                 MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            ArrVertex = new Vertex[dataGridViewVertex.Rows.Count];
-            for (int i = 0; i< dataGridViewVertex.Rows.Count;i++)
+            bool checkSuccess= false;
+            if (!CheckMatch())
             {
-                ArrVertex[i] = new Vertex();
-                try {
-                    ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
-                    if(ArrVertex[i].Name=="")
+                ArrVertex = new Vertex[dataGridViewVertex.Rows.Count];
+                for (int i = 0; i < dataGridViewVertex.Rows.Count; i++)
+                {
+                    ArrVertex[i] = new Vertex();
+                    try
                     {
-                        MessageBox.Show("Не задано имя вершины!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ArrVertex[i].Name = Convert.ToString(dataGridViewVertex.Rows[i].Cells[0].Value);
+                        if (ArrVertex[i].Name == "")
+                        {
+                            MessageBox.Show("Не задано имя вершины!\nСтрока " + (i + 1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        //Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
+                        //if (MatchObj.Success)
+                        //    ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
+                        //else
+                        //{
+                        //    MessageBox.Show("Неверные данные!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //    return;
+                        //}
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK);
                         return;
                     }
-                    //Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
-                    //if (MatchObj.Success)
-                    //    ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
-                    //else
-                    //{
-                    //    MessageBox.Show("Неверные данные!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    return;
-                    //}
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message,"Ошибка!", MessageBoxButtons.OK);
-                    return;
                 }
             }
+            else checkSuccess = true;
 
             //открытие окна весов
             using (Weights weights_win = new Weights())
             {
                 weights_win.VertexName = ArrVertex;//передача списка вершин
+                if (checkSuccess) weights_win.Matr = Weights;
                 weights_win.FormClosed += (closedSender, closedE) =>
                 {
                     Weights = weights_win.Matr;//возвращение матрицы весов
@@ -174,6 +181,7 @@ namespace FCM
         //проверка соответствия содержимого матрицы весов и списка концептов
         bool CheckMatch()
         {
+            if (ArrVertex == null) return false;
             if(ArrVertex.Count()== dataGridViewVertex.Rows.Count)
             {
                 for (int i = 0; i < ArrVertex.Count(); i++)
