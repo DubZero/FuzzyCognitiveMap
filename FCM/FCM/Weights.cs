@@ -19,12 +19,12 @@ namespace FCM
         {
             InitializeComponent();
         }
-
-        Regex RE = new Regex(@"(^-?\d{1,}(,|.)?\d{0,}$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
-
+        // Рег. выражение для проверки значений связей
+        Regex RE = new Regex(@"(^-?(0)(,\d{0,})?$|^-?1(,(0))?$|^NegativeVeryStrong$|^NegativeStrong$|^NegativeMedium$|^NegativeWeak$|^Zero$|^PositiveWeak$|^PositiveMedium$|^PositiveStrong$|^PositiveVeryStrong$)");
+        // Считывание данных через файл
         private void открытьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            try
+            try 
             {
                 WeightMatrix CSV_Struct = new WeightMatrix();
                 if (openFileDialog2.ShowDialog() == DialogResult.OK)
@@ -69,10 +69,10 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Сохраниение данных в экземпляре
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
-            Matr = new WeightMatrix(dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count);
+            string[,] _Matrix = new string[dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count];
             try {
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
                 {
@@ -80,7 +80,7 @@ namespace FCM
                     {
                         Match Obj = RE.Match(dataGridViewWeights.Rows[i].Cells[j].Value.ToString());
                         if(Obj.Success)
-                        Matr._Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
+                        _Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
                         else
                         {
                             MessageBox.Show("Неверные данные!\nСтрока " + i.ToString()+" Столбец "+j.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,19 +94,32 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
+            Matr = new WeightMatrix(dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count);
+            Matr._Matrix = _Matrix;
             this.Close();
         }
-
+        
         private void Weights_Load(object sender, EventArgs e)
         {
-            // Заполняем названия концептов горизонтально
+                // Заполняем названия концептов горизонтально
             for (int i = 0; i < VertexName.Count(); i++)
                 dataGridViewWeights.Columns.Add(VertexName[i].Name, VertexName[i].Name);
-            //Заполняем dataGridViewVertex 
+                //Заполняем dataGridViewVertex 
             for (int i = 0; i < VertexName.Count(); i++)
             {
                 dataGridViewWeights.Rows.Add();
                 dataGridViewWeights.Rows[i].Cells[0].Value = VertexName[i].Name; // заполнение имен концептов вертикально
+            }
+            
+            if (Matr != null)
+            {
+                for (int i = 0; i < Matr.N; i++)
+                {
+                    for (int j = 1; j <= Matr.N; j++)
+                    {
+                        dataGridViewWeights.Rows[i].Cells[j].Value = Matr._Matrix[i, j - 1];
+                    }
+                }
             }
         }
 
