@@ -208,7 +208,6 @@
             this.MinimumSize = new System.Drawing.Size(286, 410);
             this.Name = "Main";
             this.Text = "FCM";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VertexNum)).EndInit();

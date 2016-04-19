@@ -12,26 +12,21 @@ namespace FCM
     {
         //Поля
         
-        public String Name { get; set; }        
-        public String StartValue{ get; set; }
-        public List<double> Values { get { return values; } set { values = value; } }        
-        public List<double> values = new List<double>();
+        public String Name { get; set; }
+        
+        public String StartValue{ get; set; }        
+        public List<double> Values{get;}
 
         // Методы
-        // Разделитель колонок из файла CSV
+
+        // разделитель колонок из файла CSV
         public void SplitCSV(string line)
         {          
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
             Name = parts[0];
             StartValue = parts[1];
         }
-        // Очистка листа для очистки таблицы
-        public void Clr()
-        {
-            values.Clear();
-        }
 
-        // Считывание с файа CSV
         public static List<Vertex> ReadFile(string filename)
         {
             List<Vertex> result = new List<Vertex>();
