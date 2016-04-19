@@ -30,14 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.reportTable = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.zedGraph = new ZedGraph.ZedGraphControl();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reportTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,50 +53,65 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(865, 553);
+            this.tabControl1.Size = new System.Drawing.Size(622, 375);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.reportTable);
+            this.tabPage1.Controls.Add(this.dataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(857, 527);
+            this.tabPage1.Size = new System.Drawing.Size(614, 349);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Таблица";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // reportTable
+            // dataGridView
             // 
-            this.reportTable.AllowUserToAddRows = false;
-            this.reportTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportTable.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.reportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.reportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            this.reportTable.Location = new System.Drawing.Point(6, 6);
-            this.reportTable.Name = "reportTable";
-            this.reportTable.RowHeadersVisible = false;
-            this.reportTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.reportTable.Size = new System.Drawing.Size(845, 515);
-            this.reportTable.TabIndex = 0;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dataGridView.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.Size = new System.Drawing.Size(602, 337);
+            this.dataGridView.TabIndex = 0;
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "";
+            this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Column3";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Column4";
+            this.Column4.Name = "Column4";
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.SaveButton);
             this.tabPage2.Controls.Add(this.zedGraph);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(857, 527);
+            this.tabPage2.Size = new System.Drawing.Size(614, 349);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "График";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -108,31 +125,20 @@
             this.zedGraph.Location = new System.Drawing.Point(0, 0);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.PointValueFormat = "G";
-            this.zedGraph.Size = new System.Drawing.Size(854, 494);
+            this.zedGraph.Size = new System.Drawing.Size(614, 349);
             this.zedGraph.TabIndex = 4;
             // 
-            // SaveButton
-            // 
-            this.SaveButton.Location = new System.Drawing.Point(422, 498);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 5;
-            this.SaveButton.Text = "Сохранить";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // Report
+            // Raport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 578);
+            this.ClientSize = new System.Drawing.Size(647, 400);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Report";
+            this.Name = "Raport";
             this.Text = "Отчет";
-            this.Load += new System.EventHandler(this.Report_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.reportTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -143,9 +149,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView reportTable;
-        private ZedGraph.ZedGraphControl zedGraph;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private ZedGraph.ZedGraphControl zedGraph;
     }
 }

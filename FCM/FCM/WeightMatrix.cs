@@ -10,18 +10,13 @@ namespace FCM
     public class WeightMatrix
     {
         //Поля
-        private String[,] _matrix; // матрицы значений связей концептов
+        private String[,] _matrix;
         public String[,] _Matrix
         {
             get { return _matrix; }
             set { _matrix = value; }
         }
-        private double[,] _matrixVal;
-        public double[,] _MatrixVal
-        {
-            get { return _matrixVal; }
-            set { _matrixVal = value; }
-        }
+
         private int n;//количество строк матрицы
         public int N
         {
@@ -38,7 +33,7 @@ namespace FCM
         private List<string> _vertexName=new List<string>();
         public List<string> _VertexName { get { return _vertexName; } set { _vertexName = value; } }
         
-        // Конструкторы
+        //конструкторы
         public WeightMatrix(String[,] matrix)
         {
             _matrix = matrix;
@@ -54,7 +49,6 @@ namespace FCM
         public WeightMatrix(int N, int M)
         {
             _matrix = new String[N, M];
-            _matrixVal = new double[N,M];
             n = N;
             m = M;
         }
@@ -64,6 +58,26 @@ namespace FCM
             n = 0;
             m = 0;
         }
+
+        //умножение матриц
+        //public static WeightMatrix operator *(WeightMatrix mat1, WeightMatrix mat2)
+        //{
+        //    if (mat1.m != mat2.n) throw new Exception("Матрицы нельзя перемножить");
+        //    WeightMatrix result = new WeightMatrix(mat1.n, mat2.m);
+
+        //    for (int i = 0; i < mat1.n; i++)
+        //    {
+        //        for (int j = 0; j < mat2.m; j++)
+        //        {
+        //            for (int k = 0; k < mat2.n; k++)
+        //            {
+        //                result._matrix[i, j] += mat1._matrix[i, k] * mat2._matrix[k, j];
+        //            }
+        //        }
+        //    }
+        //    return result;
+        //}
+
         // Методы
 
         // разделитель колонок из файла CSV
@@ -84,7 +98,7 @@ namespace FCM
                 _vertexName.Add(parts[i]);
             }
         }
-        // Считывание значений связей из файла CSV
+
         public static WeightMatrix ReadFile(string filename)
         {            
             using (StreamReader sr = new StreamReader(filename))
