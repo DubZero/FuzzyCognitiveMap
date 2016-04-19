@@ -33,8 +33,8 @@
             this.reportTable = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.zedGraph = new ZedGraph.ZedGraphControl();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportTable)).BeginInit();
@@ -75,7 +75,6 @@
             this.reportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.reportTable.GridColor = System.Drawing.SystemColors.Control;
             this.reportTable.Location = new System.Drawing.Point(6, 6);
             this.reportTable.Name = "reportTable";
             this.reportTable.RowHeadersVisible = false;
@@ -100,16 +99,6 @@
             this.tabPage2.Text = "График";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // SaveButton
-            // 
-            this.SaveButton.Location = new System.Drawing.Point(422, 498);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 5;
-            this.SaveButton.Text = "Сохранить";
-            this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
             // zedGraph
             // 
             this.zedGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -121,6 +110,16 @@
             this.zedGraph.PointValueFormat = "G";
             this.zedGraph.Size = new System.Drawing.Size(854, 494);
             this.zedGraph.TabIndex = 4;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(422, 498);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 5;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // Report
             // 

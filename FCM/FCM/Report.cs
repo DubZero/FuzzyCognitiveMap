@@ -20,7 +20,7 @@ namespace FCM
         {
             InitializeComponent();
         }
-
+        // Заполнение таблицы отчета
         private void Report_Load(object sender, EventArgs e)
         {
             reportTable.Rows.Clear();
@@ -30,7 +30,7 @@ namespace FCM
                 
             }
             for(int j = 0; j < Vertexes[0].Values.Count(); j++)
-            if(Vertexes.Length > reportTable.RowCount)
+            if(Vertexes[0].Values.Count() > reportTable.RowCount)
                 reportTable.Rows.Add();
             for(int i=0;i<Vertexes.Count();i++)
             {
@@ -43,7 +43,7 @@ namespace FCM
             DrawGraph();
             
         }
-
+        // Отрисовка графика
         public void DrawGraph()
         {
             GraphPane pane = zedGraph.GraphPane;
@@ -62,6 +62,7 @@ namespace FCM
                     double y = Convert.ToDouble(reportTable[j, i].Value);
                     list.Add(x, y);
                 }
+                // Слип для генерации новых чисел P.S.(сид генерации берется из времени)
                 Random randomGen = new Random();
                 int RedComponent = randomGen.Next(255);
                 Thread.Sleep(4);
@@ -71,7 +72,7 @@ namespace FCM
                 Thread.Sleep(4);
                 Color randomColor = Color.FromArgb(RedComponent, GreenComponent, BlueComponent);
                 LineItem myCurve = pane.AddCurve(Vertexes[j-1].Name, list, randomColor, SymbolType.None);
-                myCurve.Line.Width = 1.5f;
+                myCurve.Line.Width = 2.0f;
                 list.Clear();
                 
             }
@@ -79,7 +80,7 @@ namespace FCM
             zedGraph.AxisChange();
             zedGraph.Invalidate();
         }
-
+        // Сохранение графика в файл
         public void SaveButton_Click(object sender, EventArgs e)
         {
             // ДИалог выбора имени файла создаем вручную
