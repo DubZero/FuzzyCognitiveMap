@@ -42,11 +42,14 @@
             this.chbSaveToXls = new System.Windows.Forms.CheckBox();
             this.chbAdnReport = new System.Windows.Forms.CheckBox();
             this.bntApply = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.feedback = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.k2Num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.k1Num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.feedback)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,6 +80,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.feedback);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.k2Num);
@@ -209,6 +214,30 @@
             this.bntApply.UseVisualStyleBackColor = true;
             this.bntApply.Click += new System.EventHandler(this.bntApply_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(300, 119);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Feedback = ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // feedback
+            // 
+            this.feedback.DecimalPlaces = 2;
+            this.feedback.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.feedback.Location = new System.Drawing.Point(338, 135);
+            this.feedback.Name = "feedback";
+            this.feedback.Size = new System.Drawing.Size(57, 20);
+            this.feedback.TabIndex = 8;
+            this.feedback.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.k1Num)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.feedback)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,5 +282,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown k2Num;
         private System.Windows.Forms.NumericUpDown k1Num;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown feedback;
     }
 }

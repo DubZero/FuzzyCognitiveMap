@@ -167,6 +167,7 @@ namespace FCM
             Settings.AdvancedReport = false;
             Settings.k1 = 0.5M;
             Settings.k2 = 0.5M;
+            Settings.feedback = 0.5M;
         }
 
         // Переход на окно настроек
@@ -205,7 +206,16 @@ namespace FCM
                 }
                 return (double)(Settings.k1) *sum+(double)Settings.k2*(ArrVertex[i].Values[t-1]);
             }
-            return 0;
+            else
+            {
+                for (int j = 0; j < ArrVertex.Count(); j++)
+                {
+                    if (i != j)
+                        sum += ArrVertex[j].Values[t - 1] * Weights._MatrixVal[j, i];
+                }
+                return sum + (double)Settings.feedback * (ArrVertex[i].Values[t - 1]);
+            }
+           // return 0;
         }
         // Варианты функций для расчета
         private double func(double x)
