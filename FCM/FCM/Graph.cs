@@ -21,7 +21,7 @@ namespace FCM
 
         public GraphVertex[] GraphV;
         //радиус вершины
-        double VertRad=40;
+        double VertRad=20;
     //вычисление адиуса большой окружности
         double calcRad()
         {
@@ -34,10 +34,10 @@ namespace FCM
             {
                 rad *= 1.2;
                 //нахождение оптимального радиуса
-                x1 = rad * Math.Sin(360 / ArrVertex.Count()) + pictureBox.Width / 2;
-                y1 = rad * Math.Cos(360 / ArrVertex.Count()) + pictureBox.Height / 2;
-                x2 = rad * Math.Sin(2 * 360 / ArrVertex.Count()) + pictureBox.Width / 2;
-                y2 = rad * Math.Cos(2 * 360 / ArrVertex.Count()) + pictureBox.Height / 2;
+                x1 = rad * Math.Sin(2 * Math.PI / ArrVertex.Count()) + pictureBox.Width / 2;
+                y1 = rad * Math.Cos(2 * Math.PI / ArrVertex.Count()) + pictureBox.Height / 2;
+                x2 = rad * Math.Sin(2 * 2 * Math.PI / ArrVertex.Count()) + pictureBox.Width / 2;
+                y2 = rad * Math.Cos(2 * 2 * Math.PI / ArrVertex.Count()) + pictureBox.Height / 2;
                 x = Math.Abs(x1) - Math.Abs(x2);
                 y = Math.Abs(y1) - Math.Abs(y2);
                 k = Math.Sqrt(x * x + y * y);
@@ -49,7 +49,7 @@ namespace FCM
         {
             for(int i=0;i<ArrVertex.Count();i++)
             {
-                GraphV[i]=new GraphVertex((rad * Math.Sin(i*360 / ArrVertex.Count()) + pictureBox.Width / 2)-VertRad,(rad * Math.Cos(i*360 / ArrVertex.Count()) + pictureBox.Height / 2)-VertRad);
+                GraphV[i]=new GraphVertex((rad * Math.Sin(i*2*Math.PI / ArrVertex.Count()) + pictureBox.Width / 2)-VertRad,(rad * Math.Cos(i*2*Math.PI / ArrVertex.Count()) + pictureBox.Height / 2)-VertRad);
             }
         }
 
@@ -59,6 +59,7 @@ namespace FCM
             GraphV = new GraphVertex[ArrVertex.Count()];
             double radius=calcRad();
             Pen pen = new Pen(Color.Black);
+            Brush br=Brushes.Black;
             pen.Width = 2;
             Bitmap bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             Graphics g = Graphics.FromImage(bitmap);
@@ -66,7 +67,8 @@ namespace FCM
             for (int i=0;i<GraphV.Count();i++)
             {
                 //рисуем круги
-                g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad,(float)VertRad);
+                g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
+                g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 9F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/2), (float)(GraphV[i].y+VertRad/2));
             }
             pictureBox.Image = bitmap;
         }
