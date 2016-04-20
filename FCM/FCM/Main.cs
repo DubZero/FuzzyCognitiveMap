@@ -289,6 +289,7 @@ namespace FCM
             using (Report report = new Report())
             {
                 report.Vertexes = ArrVertex;
+                report.Matr = Weights;
                 report.FormClosed += (closedSender, closedE) =>
                 {
                     foreach(Vertex vert in ArrVertex)

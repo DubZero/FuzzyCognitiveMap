@@ -20,6 +20,8 @@ namespace FCM
         public Vertex[] ArrVertex { get; set; }
 
         public GraphVertex[] GraphV;
+        public List<Edge> Edges = new List<Edge>();
+        public WeightMatrix Matr { get; set; }
         //радиус вершины
         double VertRad=20;
     //вычисление адиуса большой окружности
@@ -59,18 +61,39 @@ namespace FCM
             GraphV = new GraphVertex[ArrVertex.Count()];
             double radius=calcRad();
             Pen pen = new Pen(Color.Black);
+            Pen pen2 = new Pen(Color.Black);
+            pen2.StartCap =System.Drawing.Drawing2D.LineCap.Triangle;
             Brush br=Brushes.Black;
-            pen.Width = 2;
+            pen.Width = 3;
+            pen2.Width = 1;
             Bitmap bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             Graphics g = Graphics.FromImage(bitmap);
             calcVert(radius);
+            Brush wh = Brushes.White;
+            for(int i = 0;i < Matr.N;i++)
+            {
+                for (int j=0;j<Matr.M;j++)
+                {
+                    if (Matr._MatrixVal[i, j] != 0)
+                    {
+                        Edges.Add(new Edge(GraphV[i],GraphV[j]));
+                        g.DrawLine(pen2, (float)(GraphV[i].x + VertRad), (float)(GraphV[i].y + VertRad), (float)(GraphV[j].x + VertRad), (float)(GraphV[j].y + VertRad));
+                    }
+                }
+            }
             for (int i=0;i<GraphV.Count();i++)
             {
                 //рисуем круги
                 g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
+                g.FillEllipse(wh, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
                 g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 9F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/2), (float)(GraphV[i].y+VertRad/2));
             }
             pictureBox.Image = bitmap;
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

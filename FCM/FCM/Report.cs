@@ -16,6 +16,7 @@ namespace FCM
     public partial class Report : Form
     {
         public Vertex[] Vertexes { get; set; }
+        public WeightMatrix Matr { get; set; }
         public Report()
         {
             InitializeComponent();
@@ -121,6 +122,7 @@ namespace FCM
             using (Graph gr = new Graph())
             {
                 gr.ArrVertex = Vertexes;
+                gr.Matr = Matr;
                 gr.ShowDialog();
             }
         }

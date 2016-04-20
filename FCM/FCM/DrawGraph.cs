@@ -21,7 +21,7 @@ namespace FCM
         }
     }
 
-    class Edge
+    public class Edge
     {
         public GraphVertex v1, v2;
 

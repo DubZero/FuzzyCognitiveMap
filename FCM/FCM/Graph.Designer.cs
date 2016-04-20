@@ -41,6 +41,7 @@
             this.pictureBox.Size = new System.Drawing.Size(736, 576);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Click += new System.EventHandler(this.pictureBox_Click);
             // 
             // buttonBack
             // 
