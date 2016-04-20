@@ -22,6 +22,7 @@ namespace FCM
         public void SplitCSV(string line)
         {          
             string[] parts = line.Split(';');  //Разделитель в CSV файле.
+            if (parts.Count()==1) parts = line.Split('\t');
             Name = parts[0];
             StartValue = parts[1];
         }

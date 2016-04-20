@@ -54,7 +54,8 @@ namespace FCM
             {
                 string line = sr.ReadLine();
                 string[] parts = line.Split(';');
-                if(parts.Count()==2)
+                if(parts.Count()==1) parts = line.Split('\t');
+                if (parts.Count()==2)
                 {
                     return true;
                 }
@@ -305,20 +306,20 @@ namespace FCM
             if (o.ShowDialog(this) == DialogResult.OK)
             {
                 FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
-                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.Unicode);
+                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
                 for (int j = 0; j < ArrVertex.Count(); j++)
                 {
-                    stm.Write(ArrVertex[j].Name + "\t");
+                    stm.Write(ArrVertex[j].Name + ";");
                     if (Settings.AdvancedReport)
                     {
                         for (int i = 0; i < ArrVertex[j].Values.Count; i++)
                         {
-                            stm.Write(ArrVertex[j].Values[i] + "\t");
+                            stm.Write(ArrVertex[j].Values[i] + ";");
                         }
                     }
                     else
                     {
-                        stm.Write(ArrVertex[j].Values[(ArrVertex[j].Values.Count)-1] + "\t");
+                        stm.Write(ArrVertex[j].Values[(ArrVertex[j].Values.Count)-1] + ";");
                     }
                     stm.Write("\n");
                 }
@@ -348,6 +349,27 @@ namespace FCM
         private void Main_Load(object sender, EventArgs e)
         {
             DefaultSettings();
+        }
+
+
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog o = new SaveFileDialog();
+            o.Filter = "*.csv|*.csv";
+            o.RestoreDirectory = true;
+            if (o.ShowDialog(this) == DialogResult.OK)
+            {
+                FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
+                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
+                stm.Write("name"+ ";"+"value"+"\n");
+                for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
+                {
+                    stm.Write(dataGridViewVertex.Rows[j].Cells[0].Value + ";" + dataGridViewVertex.Rows[j].Cells[1].Value + "\n");
+
+                }
+                stm.Close();
+            }
         }
     }
 }

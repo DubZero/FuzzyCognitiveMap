@@ -77,12 +77,14 @@
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // сохранитьКакToolStripMenuItem
             // 
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
             this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как";
+            this.сохранитьКакToolStripMenuItem.Visible = false;
             // 
             // toolStripMenuItem1
             // 
@@ -152,7 +154,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridViewWeights);
             this.Controls.Add(this.menuStrip1);
-            this.MaximumSize = new System.Drawing.Size(99999999, 99999999);
+            this.MaximumSize = new System.Drawing.Size(100000000, 99999999);
             this.MinimumSize = new System.Drawing.Size(442, 313);
             this.Name = "Weights";
             this.Text = "Веса";
