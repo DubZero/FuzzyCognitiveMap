@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace FCM
 {
-    class GraphVertex
+    public class GraphVertex
     {
-        public int x, y;
+        public double x, y;
 
-        public GraphVertex(int x, int y)
+        public GraphVertex(double x, double y)
         {
             this.x = x;
             this.y = y;
@@ -23,9 +23,9 @@ namespace FCM
 
     class Edge
     {
-        public int v1, v2;
+        public GraphVertex v1, v2;
 
-        public Edge(int v1, int v2)
+        public Edge(GraphVertex v1, GraphVertex v2)
         {
             this.v1 = v1;
             this.v2 = v2;
