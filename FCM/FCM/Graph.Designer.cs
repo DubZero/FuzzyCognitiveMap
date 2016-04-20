@@ -35,15 +35,16 @@
             // 
             // pictureBox
             // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.Window;
             this.pictureBox.Location = new System.Drawing.Point(13, 13);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(737, 425);
+            this.pictureBox.Size = new System.Drawing.Size(736, 576);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(314, 444);
+            this.buttonBack.Location = new System.Drawing.Point(675, 595);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(75, 23);
             this.buttonBack.TabIndex = 1;
@@ -54,11 +55,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 472);
+            this.ClientSize = new System.Drawing.Size(762, 630);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.pictureBox);
             this.Name = "Graph";
             this.Text = "Graph";
+            this.Load += new System.EventHandler(this.Graph_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
 

@@ -115,5 +115,14 @@ namespace FCM
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (Graph gr = new Graph())
+            {
+                gr.ArrVertex = Vertexes;
+                gr.ShowDialog();
+            }
+        }
     }
 }
