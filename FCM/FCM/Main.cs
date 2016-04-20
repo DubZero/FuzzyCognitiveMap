@@ -280,6 +280,10 @@ namespace FCM
                     if (Math.Abs(ArrVertex[i].Values[j] - ArrVertex[i].Values[j - 1]) > 0.001)
                         check = false;
                 }
+            }
+            if(Settings.SaveToXLS)
+            {
+                SaveReport(ArrVertex);
             }          
             using (Report report = new Report())
             {
@@ -292,6 +296,36 @@ namespace FCM
                 report.ShowDialog();
             }
         }
+
+        void SaveReport(Vertex[]ArrVertex)
+        {
+            SaveFileDialog o = new SaveFileDialog();
+            o.Filter = "*.csv|*.csv";
+            o.RestoreDirectory = true;
+            if (o.ShowDialog(this) == DialogResult.OK)
+            {
+                FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
+                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.Unicode);
+                for (int j = 0; j < ArrVertex.Count(); j++)
+                {
+                    stm.Write(ArrVertex[j].Name + "\t");
+                    if (Settings.AdvancedReport)
+                    {
+                        for (int i = 0; i < ArrVertex[j].Values.Count; i++)
+                        {
+                            stm.Write(ArrVertex[j].Values[i] + "\t");
+                        }
+                    }
+                    else
+                    {
+                        stm.Write(ArrVertex[j].Values[(ArrVertex[j].Values.Count)-1] + "\t");
+                    }
+                    stm.Write("\n");
+                }
+                stm.Close();
+            }
+        }
+
         // Создание и удаление вершин
         private void VertexNum_ValueChanged(object sender, EventArgs e)
         {
