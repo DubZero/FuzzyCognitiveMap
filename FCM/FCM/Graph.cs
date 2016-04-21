@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FCM
 {
     public partial class Graph : Form
@@ -20,6 +21,7 @@ namespace FCM
         public Vertex[] ArrVertex { get; set; }
 
         public GraphVertex[] GraphV;
+        Bitmap bitmap;
         public List<Edge> Edges = new List<Edge>();
         public WeightMatrix Matr { get; set; }
         //радиус вершины
@@ -66,21 +68,16 @@ namespace FCM
             Brush br=Brushes.Black;
             pen.Width = 3;
             pen2.Width = 1;
-            Bitmap bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+            bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             Graphics g = Graphics.FromImage(bitmap);
             calcVert(radius);
             Brush wh = Brushes.White;
-            for(int i = 0;i < Matr.N;i++)
+            createEdges();
+            for(int i=0;i<Edges.Count();i++)
             {
-                for (int j=0;j<Matr.M;j++)
-                {
-                    if (Matr._MatrixVal[i, j] != 0)
-                    {
-                        Edges.Add(new Edge(GraphV[i],GraphV[j]));
-                        g.DrawLine(pen2, (float)(GraphV[i].x + VertRad), (float)(GraphV[i].y + VertRad), (float)(GraphV[j].x + VertRad), (float)(GraphV[j].y + VertRad));
-                    }
-                }
+                g.DrawLine(pen2, (float)(Edges[i].v1.x + VertRad), (float)(Edges[i].v1.y + VertRad), (float)(Edges[i].v2.x + VertRad), (float)(Edges[i].v2.y + VertRad));
             }
+
             for (int i=0;i<GraphV.Count();i++)
             {
                 //рисуем круги
@@ -90,10 +87,48 @@ namespace FCM
             }
             pictureBox.Image = bitmap;
         }
-
-        private void pictureBox_Click(object sender, EventArgs e)
+        //создание граней графа
+        private void createEdges()
         {
-
+            for (int i = 0; i < Matr.N; i++)
+            {
+                for (int j = 0; j < Matr.M; j++)
+                {
+                    if (Matr._MatrixVal[i, j] != 0)
+                    {
+                        Edges.Add(new Edge(GraphV[i], GraphV[j], Matr._MatrixVal[i, j]));
+                    }
+                }
+            }
+        }
+        //определение попадания в грань
+        private Edge lineDetection(int x,int y)
+        {
+            for(int i=0;i<Edges.Count();i++)
+            {
+                double x1 = Edges[i].v1.x;
+                double x2 = Edges[i].v2.x;
+                double y1 = Edges[i].v1.y;
+                double y2 = Edges[i].v2.y;
+                if (((x-x1)*(y2- y1)-(y- y1) *(x2 - x1)<0.00001)&&((x < x1&&x> x2)|| (x > x1 && x < x2))&&((y > y1 && y < y2) || (y < y1 && y > y2)))
+                {
+                    return Edges[i];
+                }
+            }
+            return null;
+        }
+        //обработка клика по рисунку
+        private void pictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            Edge ed = lineDetection(e.X,e.Y);
+            Graphics g = Graphics.FromImage(bitmap);
+            Pen pen = new Pen(Color.Red);
+            pen.Width = 2;
+            if (ed != null)
+            {
+                g.DrawLine(pen, (float)(ed.v1.x+VertRad), (float)(ed.v1.y+VertRad), (float)(ed.v2.x+VertRad), (float)(ed.v2.y+VertRad));
+                pictureBox.Image = bitmap;
+            }
         }
     }
 }

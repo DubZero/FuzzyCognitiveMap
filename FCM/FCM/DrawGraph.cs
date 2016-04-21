@@ -24,11 +24,12 @@ namespace FCM
     public class Edge
     {
         public GraphVertex v1, v2;
-
-        public Edge(GraphVertex v1, GraphVertex v2)
+        public double w;
+        public Edge(GraphVertex v1, GraphVertex v2,double weight)
         {
             this.v1 = v1;
             this.v2 = v2;
+            this.w = weight;
         }
     }
     class DrawGraph
