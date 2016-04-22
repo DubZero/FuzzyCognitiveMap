@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
 using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace FCM
 {
@@ -20,6 +22,7 @@ namespace FCM
         public Report()
         {
             InitializeComponent();
+            chart.Series.Clear();
         }
         // Заполнение таблицы отчета
         private void Report_Load(object sender, EventArgs e)
@@ -42,6 +45,7 @@ namespace FCM
                 }
             }
             DrawGraph();
+            DrawChartGraph();
             
         }
         // Отрисовка графика
@@ -84,7 +88,28 @@ namespace FCM
 
         void DrawChartGraph()
         {
+            List<Series> lstSeries = new List<Series>();
+            for (int j = 1; j < reportTable.ColumnCount; j++)
+            {
+                lstSeries.Add(new Series());
+                for (int i = 0; i < reportTable.RowCount; i++)
+                {
 
+                    double x = Convert.ToDouble(reportTable[0, i].Value);
+                    double y = Convert.ToDouble(reportTable[j, i].Value);
+                    lstSeries[j - 1].Points.AddXY(x, y);
+                }            
+            }
+           
+            for (int j = 0; j < lstSeries.Count();j++)
+            {
+                lstSeries[j].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                chart.Series.Add(Vertexes[j].Name);
+                for (int i = 0; i < lstSeries[0].Points.Count(); i++)
+                {
+                   // chart.Series[Vertexes[j].Name].Points.AddXY(lstSeries[j].Points[i].XValue, lstSeries[j].Points[i].YValues);
+                }
+            }
         }
         // Сохранение графика в файл
         public void SaveButton_Click(object sender, EventArgs e)
