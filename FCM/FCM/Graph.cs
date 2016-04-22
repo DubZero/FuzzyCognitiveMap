@@ -85,7 +85,7 @@ namespace FCM
                 //рисуем круги
                 g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
                 g.FillEllipse(wh, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
-                g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 9F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/2), (float)(GraphV[i].y+VertRad/2));
+                g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 8.5F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/4), (float)(GraphV[i].y+VertRad/4));
             }
            // bitmap = graph;
             pictureBox.Image = graph;
@@ -113,6 +113,16 @@ namespace FCM
                 double x2 = (Edges[i].v2.x+VertRad);
                 double y1 = (Edges[i].v1.y+VertRad);
                 double y2 = (Edges[i].v2.y+VertRad);
+                if(Math.Abs(x1-x2)<2)
+                {
+                    x1 += 1;
+                    x2 -= 1;
+                }
+                if (Math.Abs(y1 - y2) < 2)
+                {
+                    y1 += 1;
+                    y2 -= 1;
+                }
                 //double k = ((y1 - y2) / (x1 - x2));
                 if ((Math.Abs((y1-y2)*x+(x2-x1)*y+(x1*y2-y1*x2))<1500)&&((x <= x1&&x>= x2)|| (x >= x1 && x <= x2))&&((y >= y1 && y <= y2) || (y <= y1 && y >= y2)))
                 {
@@ -128,9 +138,10 @@ namespace FCM
             //bitmap=graph.;
             bitmap = new Bitmap(graph);
             Graphics g = Graphics.FromImage(bitmap);
-            Pen pen = new Pen(Color.Red);
-            pen.EndCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
-            pen.Width = 0.5f;
+            Pen pen = new Pen(Color.Red);            
+            pen.Width = 1f;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
+            pen.StartCap= System.Drawing.Drawing2D.LineCap.Flat;
             Brush br = Brushes.Green;
             if (ed != null)
             {                                
