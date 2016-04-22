@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
 using System.Threading;
-
+using OxyPlot;
+using OxyPlot.Series;
 namespace FCM
 {
     public partial class Report : Form
@@ -100,15 +101,15 @@ namespace FCM
                 // Формат картинки выбирается исходя из имени выбранного файла
                 if (dlg.FileName.EndsWith(".png"))
                 {
-                    bmp.Save(dlg.FileName, ImageFormat.Png);
+                    bmp.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Png);
                 }
                 else if (dlg.FileName.EndsWith(".jpg") || dlg.FileName.EndsWith(".jpeg"))
                 {
-                    bmp.Save(dlg.FileName, ImageFormat.Jpeg);
+                    bmp.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                 }
                 else if (dlg.FileName.EndsWith(".bmp"))
                 {
-                    bmp.Save(dlg.FileName, ImageFormat.Bmp);
+                    bmp.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                 }
                 else
                 {

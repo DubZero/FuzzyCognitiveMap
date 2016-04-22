@@ -1,5 +1,6 @@
 ﻿namespace FCM
 {
+    using OxyPlot.WindowsForms;
     partial class Report
     {
         /// <summary>
@@ -36,6 +37,8 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.zedGraph = new ZedGraph.ZedGraphControl();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.plot1 = new OxyPlot.WindowsForms.PlotView();            
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportTable)).BeginInit();
@@ -49,11 +52,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(865, 541);
             this.tabControl1.TabIndex = 0;
+            
             // 
             // tabPage1
             // 
@@ -95,7 +100,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(857, 527);
+            this.tabPage2.Size = new System.Drawing.Size(857, 515);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "График";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -132,6 +137,30 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(857, 515);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // plot1
+            // 
+            this.plot1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.plot1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plot1.Location = new System.Drawing.Point(0, 0);
+            this.plot1.Margin = new System.Windows.Forms.Padding(0);
+            this.plot1.Name = "plot1";
+            this.plot1.PanCursor = System.Windows.Forms.Cursors.Hand;
+            this.plot1.Size = new System.Drawing.Size(632, 446);
+            this.plot1.TabIndex = 0;
+            this.plot1.ZoomHorizontalCursor = System.Windows.Forms.Cursors.SizeWE;
+            this.plot1.ZoomRectangleCursor = System.Windows.Forms.Cursors.SizeNWSE;
+            this.plot1.ZoomVerticalCursor = System.Windows.Forms.Cursors.SizeNS;
+            // 
             // Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,5 +189,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private PlotView plot1;
     }
 }

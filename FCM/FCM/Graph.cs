@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace FCM
 {
     public partial class Graph : Form
@@ -113,7 +114,7 @@ namespace FCM
                 double y1 = (Edges[i].v1.y+VertRad);
                 double y2 = (Edges[i].v2.y+VertRad);
                 //double k = ((y1 - y2) / (x1 - x2));
-                if ((/*((x-x1)*(y2- y1)-(y- y1) *(x2 - x1))<0.01)*/((y1-y2)*x+(x2-x1)*y+(x1*y2-y1*x2))<1)&&((x <= x1&&x>= x2)|| (x >= x1 && x <= x2))&&((y >= y1 && y <= y2) || (y <= y1 && y >= y2)))
+                if ((Math.Abs((y1-y2)*x+(x2-x1)*y+(x1*y2-y1*x2))<1500)&&((x <= x1&&x>= x2)|| (x >= x1 && x <= x2))&&((y >= y1 && y <= y2) || (y <= y1 && y >= y2)))
                 {
                     return Edges[i];
                 }
