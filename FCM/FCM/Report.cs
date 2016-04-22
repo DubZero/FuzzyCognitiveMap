@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
 using System.Threading;
-using OxyPlot;
-using OxyPlot.Series;
+
 namespace FCM
 {
     public partial class Report : Form
@@ -81,6 +80,11 @@ namespace FCM
             
             zedGraph.AxisChange();
             zedGraph.Invalidate();
+        }
+
+        void DrawChartGraph()
+        {
+
         }
         // Сохранение графика в файл
         public void SaveButton_Click(object sender, EventArgs e)
