@@ -31,6 +31,12 @@ namespace FCM
             this.v2 = v2;
             this.w = weight;
         }
+        public Edge(double x1,double y1,double x2,double y2, double weight)
+        {
+            this.v1=new GraphVertex(x1, y1);
+            this.v2=new GraphVertex(x2, y2);
+            this.w = weight;
+        }
     }
     class DrawGraph
     {

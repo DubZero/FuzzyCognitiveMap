@@ -68,7 +68,7 @@ namespace FCM
             pen2.StartCap =System.Drawing.Drawing2D.LineCap.Triangle;
             Brush br=Brushes.Black;
             pen.Width = 3;
-            pen2.Width = 1;
+            pen2.Width = 1.5f;
             bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             graph=new Bitmap(pictureBox.Width, pictureBox.Height); ;
             Graphics g = Graphics.FromImage(graph);
@@ -90,6 +90,15 @@ namespace FCM
            // bitmap = graph;
             pictureBox.Image = graph;
         }
+        private bool isBackEdge(GraphVertex v1,GraphVertex v2)
+        {
+            for (int i = 0; i < Edges.Count(); i++)
+            {
+                if (Edges[i].v1.x == v2.x&& Edges[i].v1.y == v2.y && Edges[i].v2.x == v1.x&& Edges[i].v2.y == v1.y)
+                    return true;
+            }
+            return false;
+        }
         //создание граней графа
         private void createEdges()
         {
@@ -99,7 +108,9 @@ namespace FCM
                 {
                     if (Matr._MatrixVal[i, j] != 0)
                     {
-                        Edges.Add(new Edge(GraphV[i], GraphV[j], Matr._MatrixVal[i, j]));
+                        if (isBackEdge(GraphV[i], GraphV[j]))
+                            Edges.Add(new Edge(GraphV[i].x+7, GraphV[i].y + 7, GraphV[j].x + 7, GraphV[j].y + 7, Matr._MatrixVal[i, j]));
+                        else Edges.Add(new Edge(GraphV[i], GraphV[j], Matr._MatrixVal[i, j]));
                     }
                 }
             }
@@ -138,15 +149,15 @@ namespace FCM
             //bitmap=graph.;
             bitmap = new Bitmap(graph);
             Graphics g = Graphics.FromImage(bitmap);
-            Pen pen = new Pen(Color.Red);            
-            pen.Width = 1f;
+            Pen pen = new Pen(Color.Red,2.5f);            
+            //pen.Width = 0.7f;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
             pen.StartCap= System.Drawing.Drawing2D.LineCap.Flat;
             Brush br = Brushes.Green;
             if (ed != null)
             {                                
                 g.DrawLine(pen, (float)(ed.v1.x+VertRad), (float)(ed.v1.y+VertRad), (float)(ed.v2.x+VertRad), (float)(ed.v2.y+VertRad));
-                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 12F, FontStyle.Bold), br,e.X,e.Y);              
+                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 12F, FontStyle.Regular), br,e.X,e.Y);              
             }
             pictureBox.Image = bitmap;
         }
