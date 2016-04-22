@@ -21,7 +21,7 @@ namespace FCM
         public Vertex[] ArrVertex { get; set; }
 
         public GraphVertex[] GraphV;
-        Bitmap bitmap;
+        Bitmap bitmap,graph;
         public List<Edge> Edges = new List<Edge>();
         public WeightMatrix Matr { get; set; }
         //радиус вершины
@@ -69,7 +69,8 @@ namespace FCM
             pen.Width = 3;
             pen2.Width = 1;
             bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
-            Graphics g = Graphics.FromImage(bitmap);
+            graph=new Bitmap(pictureBox.Width, pictureBox.Height); ;
+            Graphics g = Graphics.FromImage(graph);
             calcVert(radius);
             Brush wh = Brushes.White;
             createEdges();
@@ -85,7 +86,8 @@ namespace FCM
                 g.FillEllipse(wh, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
                 g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 9F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/2), (float)(GraphV[i].y+VertRad/2));
             }
-            pictureBox.Image = bitmap;
+           // bitmap = graph;
+            pictureBox.Image = graph;
         }
         //создание граней графа
         private void createEdges()
@@ -106,11 +108,12 @@ namespace FCM
         {
             for(int i=0;i<Edges.Count();i++)
             {
-                double x1 = Edges[i].v1.x;
-                double x2 = Edges[i].v2.x;
-                double y1 = Edges[i].v1.y;
-                double y2 = Edges[i].v2.y;
-                if (((x-x1)*(y2- y1)-(y- y1) *(x2 - x1)<0.00001)&&((x < x1&&x> x2)|| (x > x1 && x < x2))&&((y > y1 && y < y2) || (y < y1 && y > y2)))
+                double x1 = (Edges[i].v1.x+VertRad);
+                double x2 = (Edges[i].v2.x+VertRad);
+                double y1 = (Edges[i].v1.y+VertRad);
+                double y2 = (Edges[i].v2.y+VertRad);
+                //double k = ((y1 - y2) / (x1 - x2));
+                if ((/*((x-x1)*(y2- y1)-(y- y1) *(x2 - x1))<0.01)*/((y1-y2)*x+(x2-x1)*y+(x1*y2-y1*x2))<1)&&((x <= x1&&x>= x2)|| (x >= x1 && x <= x2))&&((y >= y1 && y <= y2) || (y <= y1 && y >= y2)))
                 {
                     return Edges[i];
                 }
@@ -121,14 +124,19 @@ namespace FCM
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             Edge ed = lineDetection(e.X,e.Y);
+            //bitmap=graph.;
+            bitmap = new Bitmap(graph);
             Graphics g = Graphics.FromImage(bitmap);
             Pen pen = new Pen(Color.Red);
-            pen.Width = 2;
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+            pen.Width = 0.5f;
+            Brush br = Brushes.Green;
             if (ed != null)
-            {
+            {                                
                 g.DrawLine(pen, (float)(ed.v1.x+VertRad), (float)(ed.v1.y+VertRad), (float)(ed.v2.x+VertRad), (float)(ed.v2.y+VertRad));
-                pictureBox.Image = bitmap;
+                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 12F, FontStyle.Bold), br,e.X,e.Y);              
             }
+            pictureBox.Image = bitmap;
         }
     }
 }
