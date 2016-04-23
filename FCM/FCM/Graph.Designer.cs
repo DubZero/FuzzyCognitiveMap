@@ -35,6 +35,9 @@
             // 
             // pictureBox
             // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox.Location = new System.Drawing.Point(13, 13);
             this.pictureBox.Name = "pictureBox";
@@ -45,12 +48,14 @@
             // 
             // buttonBack
             // 
+            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonBack.Location = new System.Drawing.Point(675, 595);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(75, 23);
             this.buttonBack.TabIndex = 1;
             this.buttonBack.Text = "Назад";
             this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // Graph
             // 
@@ -60,6 +65,7 @@
             this.ClientSize = new System.Drawing.Size(762, 630);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.pictureBox);
+            this.MinimumSize = new System.Drawing.Size(778, 669);
             this.Name = "Graph";
             this.Text = "Graph";
             this.Load += new System.EventHandler(this.Graph_Load);

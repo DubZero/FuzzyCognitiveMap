@@ -142,6 +142,12 @@ namespace FCM
             }
             return null;
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         //обработка клика по рисунку
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
