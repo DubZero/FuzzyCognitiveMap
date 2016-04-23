@@ -18,6 +18,7 @@ namespace FCM
     {
         public Vertex[] Vertexes { get; set; }
         public WeightMatrix Matr { get; set; }
+        public bool isOutputFlag = false;
         public Report()
         {
             InitializeComponent();
@@ -110,6 +111,28 @@ namespace FCM
                     chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
                 }
             }
+        }
+
+        private void chbOutput_CheckedChanged(object sender, EventArgs e)
+        {
+            for(int i = 0; i < Vertexes.Count(); i++)
+            {                
+                if (!isOutputFlag)
+                {
+                    if (!Vertexes[i].isOutput)
+                    {
+                        chart.Series[i].BorderWidth = 0;
+                    }                                     
+                }
+                else
+                {
+                    if(!Vertexes[i].isOutput)
+                    {
+                        chart.Series[i].BorderWidth = 3;
+                    }                    
+                }
+            }
+            isOutputFlag = chbOutput.Checked;
         }
     }
 }

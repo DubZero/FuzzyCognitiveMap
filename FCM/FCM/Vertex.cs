@@ -16,6 +16,7 @@ namespace FCM
         public String StartValue{ get; set; }
         public List<double> Values { get { return values; } set { values = value; } }        
         public List<double> values = new List<double>();
+        public bool isOutput { get; set; }
 
         // Методы
         // Разделитель колонок из файла CSV
@@ -26,7 +27,7 @@ namespace FCM
             Name = parts[0];
             StartValue = parts[1];
         }
-        // Очистка листа для очистки таблицы
+        // Очистка List для очистки таблицы
         public void Clr()
         {
             values.Clear();
