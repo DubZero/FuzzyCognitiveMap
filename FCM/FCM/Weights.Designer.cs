@@ -46,12 +46,15 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.DimGray;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItem,
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(426, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(568, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,34 +65,34 @@
             this.сохранитьToolStripMenuItem,
             this.сохранитьКакToolStripMenuItem});
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.открытьToolStripMenuItem.Text = "Файл";
             // 
             // открытьToolStripMenuItem1
             // 
             this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
-            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(181, 24);
             this.открытьToolStripMenuItem1.Text = "Открыть";
             this.открытьToolStripMenuItem1.Click += new System.EventHandler(this.открытьToolStripMenuItem1_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // сохранитьКакToolStripMenuItem
             // 
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
-            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как";
             this.сохранитьКакToolStripMenuItem.Visible = false;
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 24);
             // 
             // dataGridViewWeights
             // 
@@ -98,13 +101,15 @@
             this.dataGridViewWeights.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewWeights.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewWeights.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWeights.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name});
-            this.dataGridViewWeights.Location = new System.Drawing.Point(13, 28);
+            this.dataGridViewWeights.Location = new System.Drawing.Point(17, 34);
+            this.dataGridViewWeights.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewWeights.Name = "dataGridViewWeights";
             this.dataGridViewWeights.RowHeadersVisible = false;
-            this.dataGridViewWeights.Size = new System.Drawing.Size(401, 185);
+            this.dataGridViewWeights.Size = new System.Drawing.Size(535, 228);
             this.dataGridViewWeights.TabIndex = 2;
             // 
             // name
@@ -116,18 +121,21 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(13, 219);
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(17, 270);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(401, 20);
+            this.textBox1.Size = new System.Drawing.Size(533, 22);
             this.textBox1.TabIndex = 3;
             // 
             // btnSaveInput
             // 
             this.btnSaveInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSaveInput.Location = new System.Drawing.Point(258, 245);
+            this.btnSaveInput.Location = new System.Drawing.Point(344, 302);
+            this.btnSaveInput.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveInput.Name = "btnSaveInput";
-            this.btnSaveInput.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveInput.Size = new System.Drawing.Size(100, 28);
             this.btnSaveInput.TabIndex = 4;
             this.btnSaveInput.Text = "Применить";
             this.btnSaveInput.UseVisualStyleBackColor = true;
@@ -136,9 +144,10 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(339, 245);
+            this.btnCancel.Location = new System.Drawing.Point(452, 302);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Отмена";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -146,16 +155,19 @@
             // 
             // Weights
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 274);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(568, 337);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveInput);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridViewWeights);
             this.Controls.Add(this.menuStrip1);
-            this.MaximumSize = new System.Drawing.Size(100000000, 99999999);
-            this.MinimumSize = new System.Drawing.Size(442, 313);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(133333328, 123076919);
+            this.MinimumSize = new System.Drawing.Size(584, 376);
             this.Name = "Weights";
             this.Text = "Веса";
             this.Load += new System.EventHandler(this.Weights_Load);

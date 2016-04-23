@@ -35,7 +35,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox.Location = new System.Drawing.Point(13, 13);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(736, 576);
@@ -56,6 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(762, 630);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.pictureBox);

@@ -105,7 +105,7 @@
             legend1.Name = "Legend1";
             legend1.TitleBackColor = System.Drawing.Color.Transparent;
             this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(0, 0);
+            this.chart.Location = new System.Drawing.Point(-4, 3);
             this.chart.Name = "chart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
@@ -119,7 +119,7 @@
             series1.MarkerColor = System.Drawing.Color.White;
             series1.Name = "Series1";
             this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(1044, 608);
+            this.chart.Size = new System.Drawing.Size(1044, 598);
             this.chart.TabIndex = 0;
             this.chart.Text = "chart1";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -144,7 +144,7 @@
             this.reportTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportTable.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.reportTable.BackgroundColor = System.Drawing.Color.White;
             this.reportTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.reportTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
