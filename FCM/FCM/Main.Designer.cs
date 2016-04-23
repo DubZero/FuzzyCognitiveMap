@@ -191,12 +191,14 @@
             // 
             this.c1.HeaderText = "Имя";
             this.c1.Name = "c1";
+            this.c1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.c1.Width = 140;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Начальное значение";
             this.Column1.Name = "Column1";
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ColumnIsOutput
             // 

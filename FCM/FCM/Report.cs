@@ -112,7 +112,7 @@ namespace FCM
                 }
             }
         }
-
+        // Убрать\Показать линии НЕ выходных значений
         private void chbOutput_CheckedChanged(object sender, EventArgs e)
         {
             for(int i = 0; i < Vertexes.Count(); i++)

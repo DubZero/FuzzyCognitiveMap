@@ -64,10 +64,12 @@ namespace FCM
             GraphV = new GraphVertex[ArrVertex.Count()];
             double radius=calcRad();
             Pen pen = new Pen(Color.Black);
+            Pen OutPutpen = new Pen(Color.Red);
             Pen pen2 = new Pen(Color.Black);
             pen2.StartCap =System.Drawing.Drawing2D.LineCap.Triangle;
             Brush br=Brushes.Black;
-            pen.Width = 3;
+            pen.Width = 5;
+            OutPutpen.Width = 5;
             pen2.Width = 1.5f;
             bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             graph=new Bitmap(pictureBox.Width, pictureBox.Height); ;
@@ -83,11 +85,13 @@ namespace FCM
             for (int i=0;i<GraphV.Count();i++)
             {
                 //рисуем круги
-                g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
+                if(ArrVertex[i].isOutput)
+                    g.DrawEllipse(OutPutpen, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
+                else
+                    g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
                 g.FillEllipse(wh, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
                 g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 8.5F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/4), (float)(GraphV[i].y+VertRad/4));
-            }
-           // bitmap = graph;
+            }           
             pictureBox.Image = graph;
         }
         private bool isBackEdge(GraphVertex v1,GraphVertex v2)
@@ -142,6 +146,12 @@ namespace FCM
             }
             return null;
         }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         //обработка клика по рисунку
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
