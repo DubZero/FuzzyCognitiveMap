@@ -16,6 +16,7 @@ namespace FCM
         public String StartValue{ get; set; }
         public List<double> Values { get { return values; } set { values = value; } }        
         public List<double> values = new List<double>();
+        public bool isOutput;
 
         // Методы
         // Разделитель колонок из файла CSV

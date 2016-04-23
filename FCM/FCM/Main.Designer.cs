@@ -44,6 +44,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VertexNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVertex)).BeginInit();
@@ -70,20 +71,20 @@
             this.сохранитьToolStripMenuItem,
             this.сохранитьКакToolStripMenuItem});
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.открытьToolStripMenuItem.Text = "Файл";
             // 
             // открытьToolStripMenuItem1
             // 
             this.открытьToolStripMenuItem1.Name = "открытьToolStripMenuItem1";
-            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.открытьToolStripMenuItem1.Size = new System.Drawing.Size(181, 24);
             this.открытьToolStripMenuItem1.Text = "Открыть";
             this.открытьToolStripMenuItem1.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
@@ -91,14 +92,14 @@
             // 
             this.сохранитьКакToolStripMenuItem.Enabled = false;
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
-            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(181, 24);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как";
             this.сохранитьКакToolStripMenuItem.Visible = false;
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 24);
             // 
             // label1
             // 
@@ -141,7 +142,8 @@
             this.dataGridViewVertex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVertex.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.c1,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             this.dataGridViewVertex.Location = new System.Drawing.Point(17, 90);
             this.dataGridViewVertex.Name = "dataGridViewVertex";
             this.dataGridViewVertex.RowHeadersVisible = false;
@@ -189,13 +191,20 @@
             // 
             this.c1.HeaderText = "Имя";
             this.c1.Name = "c1";
-            this.c1.Width = 162;
+            this.c1.Width = 138;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Начальное значение";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 162;
+            this.Column1.Width = 85;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Выходное значение";
+            this.Column2.Name = "Column2";
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Main
             // 
@@ -245,6 +254,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column2;
     }
 }
 

@@ -70,10 +70,7 @@ namespace FCM
             }            
             for(int i = 0; i < lstSeries.Count(); i++)
             {
-                chart.Series[i].BorderWidth = 3;                
-                //chart.Series[i].MarkerStyle = MarkerStyle.Circle;
-                //chart.Series[i].MarkerSize = 5;
-                //chart.Series[i].MarkerColor = Color.Black;
+                chart.Series[i].BorderWidth = 3;              
             }
 
         }       
