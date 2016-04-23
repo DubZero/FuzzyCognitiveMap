@@ -36,7 +36,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewWeights = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSaveInput = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -109,25 +108,13 @@
             this.dataGridViewWeights.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewWeights.Name = "dataGridViewWeights";
             this.dataGridViewWeights.RowHeadersVisible = false;
-            this.dataGridViewWeights.Size = new System.Drawing.Size(535, 228);
+            this.dataGridViewWeights.Size = new System.Drawing.Size(535, 260);
             this.dataGridViewWeights.TabIndex = 2;
             // 
             // name
             // 
             this.name.HeaderText = "name";
             this.name.Name = "name";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(17, 270);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(533, 22);
-            this.textBox1.TabIndex = 3;
             // 
             // btnSaveInput
             // 
@@ -161,7 +148,6 @@
             this.ClientSize = new System.Drawing.Size(568, 337);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveInput);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridViewWeights);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -188,7 +174,6 @@
         private System.Windows.Forms.ToolStripMenuItem сохранитьКакToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.DataGridView dataGridViewWeights;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSaveInput;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;

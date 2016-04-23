@@ -55,6 +55,7 @@ namespace FCM
                 lstSeries.Add(new Series(Vertexes[j].Name));
                 lstSeries[j].ChartType = SeriesChartType.Line;
                 
+
                 for (int i = 0; i < reportTable.RowCount; i++)
                 {
 
@@ -69,45 +70,13 @@ namespace FCM
             }            
             for(int i = 0; i < lstSeries.Count(); i++)
             {
-                chart.Series[i].BorderWidth = 4;
-            }            
-
-        }
-        // Сохранение графика в файл
-        /*public void SaveButton_Click(object sender, EventArgs e)
-        {
-            // ДИалог выбора имени файла создаем вручную
-            SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                // Получием панель по ее индексу
-                GraphPane pane = zedGraph.GraphPane;
-
-                // Получаем картинку, соответствующую панели
-                Bitmap bmp = pane.Image;
-
-                // Сохраняем картинку средствами класса Bitmap
-                // Формат картинки выбирается исходя из имени выбранного файла
-                if (dlg.FileName.EndsWith(".png"))
-                {
-                    bmp.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                }
-                else if (dlg.FileName.EndsWith(".jpg") || dlg.FileName.EndsWith(".jpeg"))
-                {
-                    bmp.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                else if (dlg.FileName.EndsWith(".bmp"))
-                {
-                    bmp.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
-                }
-                else
-                {
-                    bmp.Save(dlg.FileName);
-                }
+                chart.Series[i].BorderWidth = 3;                
+                //chart.Series[i].MarkerStyle = MarkerStyle.Circle;
+                //chart.Series[i].MarkerSize = 5;
+                //chart.Series[i].MarkerColor = Color.Black;
             }
-        }*/
+
+        }       
 
         private void button1_Click(object sender, EventArgs e)
         {
