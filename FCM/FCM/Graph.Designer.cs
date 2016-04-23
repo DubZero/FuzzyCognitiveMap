@@ -35,6 +35,9 @@
             // 
             // pictureBox
             // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox.Location = new System.Drawing.Point(13, 13);
             this.pictureBox.MinimumSize = new System.Drawing.Size(736, 576);
@@ -64,6 +67,7 @@
             this.ClientSize = new System.Drawing.Size(762, 630);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.pictureBox);
+            this.MinimumSize = new System.Drawing.Size(778, 669);
             this.Name = "Graph";
             this.Text = "Graph";
             this.Load += new System.EventHandler(this.Graph_Load);
