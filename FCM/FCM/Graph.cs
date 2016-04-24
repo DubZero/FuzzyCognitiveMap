@@ -64,12 +64,12 @@ namespace FCM
             GraphV = new GraphVertex[ArrVertex.Count()];
             double radius=calcRad();
             Pen pen = new Pen(Color.Black);
-            Pen OutPutpen = new Pen(Color.Red);
+            Pen OutputPen = new Pen(Color.Red);
             Pen pen2 = new Pen(Color.Black);
             pen2.StartCap =System.Drawing.Drawing2D.LineCap.Triangle;
             Brush br=Brushes.Black;
             pen.Width = 5;
-            OutPutpen.Width = 5;
+            OutputPen.Width = 5;
             pen2.Width = 1.5f;
             bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             graph=new Bitmap(pictureBox.Width, pictureBox.Height); ;
@@ -86,7 +86,7 @@ namespace FCM
             {
                 //рисуем круги
                 if(ArrVertex[i].isOutput)
-                    g.DrawEllipse(OutPutpen, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
+                    g.DrawEllipse(OutputPen, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
                 else
                     g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
                 g.FillEllipse(wh, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
@@ -156,18 +156,18 @@ namespace FCM
         private void pictureBox_MouseClick(object sender, MouseEventArgs e)
         {
             Edge ed = lineDetection(e.X,e.Y);
-            //bitmap=graph.;
+
             bitmap = new Bitmap(graph);
             Graphics g = Graphics.FromImage(bitmap);
-            Pen pen = new Pen(Color.Red,2.5f);            
-            //pen.Width = 0.7f;
-            pen.EndCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
-            pen.StartCap= System.Drawing.Drawing2D.LineCap.Flat;
+            Pen pen = new Pen(Color.Red,5f);
+            pen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+            pen.StartCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
+
             Brush br = Brushes.Green;
             if (ed != null)
             {                                
                 g.DrawLine(pen, (float)(ed.v1.x+VertRad), (float)(ed.v1.y+VertRad), (float)(ed.v2.x+VertRad), (float)(ed.v2.y+VertRad));
-                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 14F, FontStyle.Regular), br,e.X,e.Y);              
+                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 16F, FontStyle.Regular), br,e.X,e.Y);              
             }
             pictureBox.Image = bitmap;
         }
