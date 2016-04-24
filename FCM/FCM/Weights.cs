@@ -73,6 +73,13 @@ namespace FCM
         // Сохраниение данных в экземпляре
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
+            for (int i = 1; i < dataGridViewWeights.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridViewWeights.Rows.Count; j++)
+                {
+                    dataGridViewWeights[i, j].Value = dataGridViewWeights[i, j].Value.ToString().Replace('.', ',');
+                }
+            }
             string[,] _Matrix = new string[dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count];
             try {
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)

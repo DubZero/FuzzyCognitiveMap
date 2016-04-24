@@ -221,6 +221,10 @@ namespace FCM
             {
                 return 1 / (1 + Math.Exp(-x));
             }
+            else if(Settings.Function == 1)
+            {
+                return Math.Exp(-(x*x)/2);
+            }
             else return 0;
         }
 
@@ -229,6 +233,13 @@ namespace FCM
         {
             double x;
             bool check = false;
+            for (int i = 0; i < dataGridViewVertex.Columns.Count-1; i++)
+            {
+                for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
+                {
+                    dataGridViewVertex[i, j].Value = dataGridViewVertex[i, j].Value.ToString().Replace('.', ',');
+                }
+            }
             if (dataGridViewVertex.Rows.Count == 0)
             {
                 MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -267,6 +278,9 @@ namespace FCM
                         return;
                     }
             }
+
+            
+
             FromLingToValue();
             for (int j = 1; !check; j++)
             {

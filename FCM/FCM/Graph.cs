@@ -167,7 +167,7 @@ namespace FCM
             if (ed != null)
             {                                
                 g.DrawLine(pen, (float)(ed.v1.x+VertRad), (float)(ed.v1.y+VertRad), (float)(ed.v2.x+VertRad), (float)(ed.v2.y+VertRad));
-                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 12F, FontStyle.Regular), br,e.X,e.Y);              
+                g.DrawString(ed.w.ToString(), new Font("Microsoft Sans Serif", 14F, FontStyle.Regular), br,e.X,e.Y);              
             }
             pictureBox.Image = bitmap;
         }
