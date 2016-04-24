@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.Text.RegularExpressions;
 
 namespace FCM
@@ -72,6 +73,13 @@ namespace FCM
         // Сохраниение данных в экземпляре
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
+            for (int i = 1; i < dataGridViewWeights.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGridViewWeights.Rows.Count; j++)
+                {
+                    dataGridViewWeights[i, j].Value = dataGridViewWeights[i, j].Value.ToString().Replace('.', ',');
+                }
+            }
             string[,] _Matrix = new string[dataGridViewWeights.Rows.Count, dataGridViewWeights.Rows.Count];
             try {
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
@@ -126,6 +134,39 @@ namespace FCM
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog o = new SaveFileDialog();
+            o.Filter = "*.csv|*.csv";
+            o.RestoreDirectory = true;
+            if (o.ShowDialog(this) == DialogResult.OK)
+            {
+                FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
+                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
+                for(int i=0;i<dataGridViewWeights.ColumnCount;i++)
+                {
+                    stm.Write(dataGridViewWeights.Columns[i].HeaderText);
+                    if(i != dataGridViewWeights.ColumnCount-1) stm.Write(";");
+                }
+                stm.Write('\n');
+                for (int j = 0; j < dataGridViewWeights.Rows.Count; j++)
+                {
+                    for (int i = 0; i < dataGridViewWeights.ColumnCount; i++)
+                    {
+                        stm.Write(dataGridViewWeights.Rows[j].Cells[i].Value);
+                        if (i != dataGridViewWeights.ColumnCount - 1) stm.Write(";");
+                    }
+                    stm.Write('\n');
+                }
+                stm.Close();
+            }
         }
     }
 }

@@ -33,6 +33,7 @@ namespace FCM
             Settings.AdvancedReport = chbAdnReport.Checked;
             Settings.k1 = k1Num.Value;
             Settings.k2 = k2Num.Value;
+            Settings.feedback = feedback.Value;
             this.Close();                     
         }
         // Считывание настроек с окна
@@ -47,7 +48,7 @@ namespace FCM
             chbAdnReport.Checked = Settings.AdvancedReport;
             k1Num.Value = Settings.k1;
             k2Num.Value = Settings.k2;
-
+            feedback.Value = Settings.feedback;
 
             if (Settings.ArgFunc == 2)
             {
@@ -62,12 +63,24 @@ namespace FCM
             {
                 k1Num.Enabled = true;
                 k2Num.Enabled = true;
+                feedback.Enabled = false;
             }
             else
             {
                 k1Num.Enabled = false;
                 k2Num.Enabled = false;
+                feedback.Enabled = true;
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

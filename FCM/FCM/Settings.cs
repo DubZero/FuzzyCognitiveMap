@@ -19,5 +19,6 @@ namespace FCM
         // Коэфиценты при 1-ом виде аргумента
         public static decimal k1 { get; set; }
         public static decimal k2 { get; set; }
+        public static decimal feedback { get; set; }
     }
 }

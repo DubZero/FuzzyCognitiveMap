@@ -31,6 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.funcBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.feedback = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.k2Num = new System.Windows.Forms.NumericUpDown();
@@ -43,6 +45,7 @@
             this.chbAdnReport = new System.Windows.Forms.CheckBox();
             this.bntApply = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.feedback)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.k2Num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.k1Num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -53,7 +56,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(17, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 17);
             this.label1.TabIndex = 0;
@@ -67,9 +71,10 @@
             this.funcBox.Items.AddRange(new object[] {
             "sigmoid(x) Сигмоидальная функция",
             "gaussmf(x) Гауссова функция"});
-            this.funcBox.Location = new System.Drawing.Point(48, 13);
+            this.funcBox.Location = new System.Drawing.Point(64, 16);
+            this.funcBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.funcBox.Name = "funcBox";
-            this.funcBox.Size = new System.Drawing.Size(369, 21);
+            this.funcBox.Size = new System.Drawing.Size(491, 24);
             this.funcBox.TabIndex = 1;
             // 
             // groupBox1
@@ -77,6 +82,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.feedback);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.k2Num);
@@ -85,28 +92,58 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 43);
+            this.groupBox1.Location = new System.Drawing.Point(17, 53);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(404, 189);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(539, 233);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Вид аргумента функции:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(400, 146);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Feedback = ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // feedback
+            // 
+            this.feedback.DecimalPlaces = 2;
+            this.feedback.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.feedback.Location = new System.Drawing.Point(451, 166);
+            this.feedback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.feedback.Name = "feedback";
+            this.feedback.Size = new System.Drawing.Size(76, 22);
+            this.feedback.TabIndex = 8;
+            this.feedback.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(301, 65);
+            this.label3.Location = new System.Drawing.Point(401, 80);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(35, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "k2 = ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(301, 29);
+            this.label2.Location = new System.Drawing.Point(401, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(35, 16);
             this.label2.TabIndex = 6;
             this.label2.Text = "k1 = ";
             // 
@@ -118,10 +155,11 @@
             0,
             0,
             65536});
-            this.k2Num.Location = new System.Drawing.Point(338, 63);
-            this.k2Num.MinimumSize = new System.Drawing.Size(57, 0);
+            this.k2Num.Location = new System.Drawing.Point(451, 78);
+            this.k2Num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.k2Num.MinimumSize = new System.Drawing.Size(76, 0);
             this.k2Num.Name = "k2Num";
-            this.k2Num.Size = new System.Drawing.Size(57, 20);
+            this.k2Num.Size = new System.Drawing.Size(76, 22);
             this.k2Num.TabIndex = 5;
             // 
             // k1Num
@@ -132,18 +170,20 @@
             0,
             0,
             65536});
-            this.k1Num.Location = new System.Drawing.Point(338, 27);
+            this.k1Num.Location = new System.Drawing.Point(451, 33);
+            this.k1Num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.k1Num.Name = "k1Num";
-            this.k1Num.Size = new System.Drawing.Size(57, 20);
+            this.k1Num.Size = new System.Drawing.Size(76, 22);
             this.k1Num.TabIndex = 4;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::FCM.Properties.Resources._4;
             this.pictureBox2.InitialImage = global::FCM.Properties.Resources._4;
-            this.pictureBox2.Location = new System.Drawing.Point(27, 105);
+            this.pictureBox2.Location = new System.Drawing.Point(36, 129);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(267, 80);
+            this.pictureBox2.Size = new System.Drawing.Size(356, 98);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
@@ -151,16 +191,18 @@
             // 
             this.pictureBox1.Image = global::FCM.Properties.Resources._3;
             this.pictureBox1.InitialImage = global::FCM.Properties.Resources._3;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(267, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(356, 98);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(7, 107);
+            this.radioButton2.Location = new System.Drawing.Point(9, 132);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(14, 13);
             this.radioButton2.TabIndex = 1;
@@ -169,7 +211,8 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 20);
+            this.radioButton1.Location = new System.Drawing.Point(9, 25);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(14, 13);
             this.radioButton1.TabIndex = 0;
@@ -180,9 +223,10 @@
             // 
             this.chbSaveToXls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbSaveToXls.AutoSize = true;
-            this.chbSaveToXls.Location = new System.Drawing.Point(13, 238);
+            this.chbSaveToXls.Location = new System.Drawing.Point(17, 294);
+            this.chbSaveToXls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chbSaveToXls.Name = "chbSaveToXls";
-            this.chbSaveToXls.Size = new System.Drawing.Size(106, 17);
+            this.chbSaveToXls.Size = new System.Drawing.Size(129, 20);
             this.chbSaveToXls.TabIndex = 3;
             this.chbSaveToXls.Text = "Сохранить в .xls";
             this.chbSaveToXls.UseVisualStyleBackColor = true;
@@ -191,9 +235,10 @@
             // 
             this.chbAdnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbAdnReport.AutoSize = true;
-            this.chbAdnReport.Location = new System.Drawing.Point(13, 262);
+            this.chbAdnReport.Location = new System.Drawing.Point(17, 323);
+            this.chbAdnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chbAdnReport.Name = "chbAdnReport";
-            this.chbAdnReport.Size = new System.Drawing.Size(127, 17);
+            this.chbAdnReport.Size = new System.Drawing.Size(158, 20);
             this.chbAdnReport.TabIndex = 4;
             this.chbAdnReport.Text = "Расширенный отчет";
             this.chbAdnReport.UseVisualStyleBackColor = true;
@@ -201,9 +246,10 @@
             // bntApply
             // 
             this.bntApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bntApply.Location = new System.Drawing.Point(274, 251);
+            this.bntApply.Location = new System.Drawing.Point(365, 309);
+            this.bntApply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bntApply.Name = "bntApply";
-            this.bntApply.Size = new System.Drawing.Size(143, 23);
+            this.bntApply.Size = new System.Drawing.Size(191, 28);
             this.bntApply.TabIndex = 5;
             this.bntApply.Text = "Применить";
             this.bntApply.UseVisualStyleBackColor = true;
@@ -211,22 +257,27 @@
             // 
             // Set
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 286);
+            this.BackColor = System.Drawing.Color.Gray;
+            this.ClientSize = new System.Drawing.Size(572, 352);
             this.Controls.Add(this.bntApply);
             this.Controls.Add(this.chbAdnReport);
             this.Controls.Add(this.chbSaveToXls);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.funcBox);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(445, 325);
-            this.MinimumSize = new System.Drawing.Size(445, 325);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(588, 391);
+            this.MinimumSize = new System.Drawing.Size(588, 391);
             this.Name = "Set";
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.Set_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.feedback)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.k2Num)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.k1Num)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -252,5 +303,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown k2Num;
         private System.Windows.Forms.NumericUpDown k1Num;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown feedback;
     }
 }

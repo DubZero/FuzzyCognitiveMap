@@ -18,9 +18,9 @@ namespace FCM
             InitializeComponent();            
         }
 
-        public WeightMatrix Weights;       
-        Regex RE = new Regex(@"(^0(,\d{0,})?$|^1(,(0))?$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)");
-        Vertex[] ArrVertex;
+        public WeightMatrix Weights;  // Связи     
+        Regex RE = new Regex(@"(^0(,\d{0,})?$|^1(,(0))?$|^z&|^vvl$|^vl$|^l$|^m$|^h$|^vh$|^vvh$|^o$)"); // Регулярное выражение для перевода лингв. значений
+        Vertex[] ArrVertex; // Массив вершин
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -47,6 +47,7 @@ namespace FCM
                 MessageBox.Show("Ошибка загрузки данных!\n", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         // Проверка файла с вершинами
         private bool fileCheck(string filename)
         {
@@ -54,7 +55,8 @@ namespace FCM
             {
                 string line = sr.ReadLine();
                 string[] parts = line.Split(';');
-                if(parts.Count()==2)
+                if(parts.Count()==1) parts = line.Split('\t');
+                if (parts.Count()==2)
                 {
                     return true;
                 }
@@ -65,6 +67,7 @@ namespace FCM
                 }
             }
         }
+
         // Переход на окно "Веса"
         private void btnToWeights_Click(object sender, EventArgs e)
         {
@@ -89,14 +92,6 @@ namespace FCM
                             MessageBox.Show("Не задано имя вершины!\nСтрока " + (i + 1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        //Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
-                        //if (MatchObj.Success)
-                        //    ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
-                        //else
-                        //{
-                        //    MessageBox.Show("Неверные данные!\nСтрока " + (i+1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //    return;
-                        //}
                     }
                     catch (Exception ex)
                     {
@@ -120,6 +115,7 @@ namespace FCM
 
             }
         }
+
         // Перевод лингвистических значений в численные
         public void FromLingToValue()
         {
@@ -167,6 +163,7 @@ namespace FCM
             Settings.AdvancedReport = false;
             Settings.k1 = 0.5M;
             Settings.k2 = 0.5M;
+            Settings.feedback = 0.5M;
         }
 
         // Переход на окно настроек
@@ -205,8 +202,18 @@ namespace FCM
                 }
                 return (double)(Settings.k1) *sum+(double)Settings.k2*(ArrVertex[i].Values[t-1]);
             }
-            return 0;
+            else
+            {
+                for (int j = 0; j < ArrVertex.Count(); j++)
+                {
+                    if (i != j)
+                        sum += ArrVertex[j].Values[t - 1] * Weights._MatrixVal[j, i];
+                }
+                return sum + (double)Settings.feedback * (ArrVertex[i].Values[t - 1]);
+            }
+           // return 0;
         }
+
         // Варианты функций для расчета
         private double func(double x)
         {
@@ -214,13 +221,25 @@ namespace FCM
             {
                 return 1 / (1 + Math.Exp(-x));
             }
+            else if(Settings.Function == 1)
+            {
+                return Math.Exp(-(x*x)/2);
+            }
             else return 0;
         }
+
         // Переход к окну Анализ
         private void btnCalc_Click(object sender, EventArgs e)
         {
             double x;
             bool check = false;
+            for (int i = 0; i < dataGridViewVertex.Columns.Count-1; i++)
+            {
+                for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
+                {
+                    dataGridViewVertex[i, j].Value = dataGridViewVertex[i, j].Value.ToString().Replace('.', ',');
+                }
+            }
             if (dataGridViewVertex.Rows.Count == 0)
             {
                 MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -259,6 +278,9 @@ namespace FCM
                         return;
                     }
             }
+
+            
+
             FromLingToValue();
             for (int j = 1; !check; j++)
             {
@@ -270,10 +292,19 @@ namespace FCM
                     if (Math.Abs(ArrVertex[i].Values[j] - ArrVertex[i].Values[j - 1]) > 0.001)
                         check = false;
                 }
+            }
+            for(int i = 0; i < ArrVertex.Count(); i++)
+            {
+                ArrVertex[i].isOutput = Convert.ToBoolean(dataGridViewVertex[2, i].Value);
+            }
+            if(Settings.SaveToXLS)
+            {
+                SaveReport(ArrVertex);
             }          
             using (Report report = new Report())
             {
                 report.Vertexes = ArrVertex;
+                report.Matr = Weights;
                 report.FormClosed += (closedSender, closedE) =>
                 {
                     foreach(Vertex vert in ArrVertex)
@@ -282,6 +313,37 @@ namespace FCM
                 report.ShowDialog();
             }
         }
+
+        // Фунция для сохранения отчета
+        void SaveReport(Vertex[]ArrVertex)
+        {
+            SaveFileDialog o = new SaveFileDialog();
+            o.Filter = "*.csv|*.csv";
+            o.RestoreDirectory = true;
+            if (o.ShowDialog(this) == DialogResult.OK)
+            {
+                FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
+                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
+                for (int j = 0; j < ArrVertex.Count(); j++)
+                {
+                    stm.Write(ArrVertex[j].Name + ";");
+                    if (Settings.AdvancedReport)
+                    {
+                        for (int i = 0; i < ArrVertex[j].Values.Count; i++)
+                        {
+                            stm.Write(ArrVertex[j].Values[i] + ";");
+                        }
+                    }
+                    else
+                    {
+                        stm.Write(ArrVertex[j].Values[(ArrVertex[j].Values.Count)-1] + ";");
+                    }
+                    stm.Write("\n");
+                }
+                stm.Close();
+            }
+        }
+
         // Создание и удаление вершин
         private void VertexNum_ValueChanged(object sender, EventArgs e)
         {
@@ -301,9 +363,30 @@ namespace FCM
             }            
         }
 
+        // Заполнение настроек расчета по умолчанию
         private void Main_Load(object sender, EventArgs e)
         {
             DefaultSettings();
+        }
+
+        // Сохранить заполненую таблицу вершин в файл CSV
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog o = new SaveFileDialog();
+            o.Filter = "*.csv|*.csv";
+            o.RestoreDirectory = true;
+            if (o.ShowDialog(this) == DialogResult.OK)
+            {
+                FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
+                StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
+                stm.Write("name"+ ";"+"value"+"\n");
+                for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
+                {
+                    stm.Write(dataGridViewVertex.Rows[j].Cells[0].Value + ";" + dataGridViewVertex.Rows[j].Cells[1].Value + "\n");
+
+                }
+                stm.Close();
+            }
         }
     }
 }
