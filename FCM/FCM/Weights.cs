@@ -73,7 +73,7 @@ namespace FCM
         // Сохраниение данных в экземпляре
         private void btnSaveInput_Click(object sender, EventArgs e)
         {
-            for (int i = 1; i < dataGridViewWeights.Rows.Count; i++)
+            for (int i = 1; i <= dataGridViewWeights.Rows.Count; i++)
             {
                 for (int j = 0; j < dataGridViewWeights.Rows.Count; j++)
                 {
