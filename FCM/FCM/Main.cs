@@ -53,6 +53,7 @@ namespace FCM
         {
             using (StreamReader sr = new StreamReader(filename))
             {
+                //сверяем количество концептов
                 string line = sr.ReadLine();
                 string[] parts = line.Split(';');
                 if(parts.Count()==1) parts = line.Split('\t');
@@ -129,7 +130,7 @@ namespace FCM
             double[] Value2 = { -1.0, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1.0 };
             for (int i = 0; i < LingVal2.Length; i++)
                 Hash.Add(LingVal2[i], Value2[i]);
-
+            //преобразование весов из строк в double
             for (int i = 0; i < ArrVertex.Count(); i++)
             {
                 if (Hash.ContainsKey(ArrVertex[i].StartValue))
@@ -157,8 +158,8 @@ namespace FCM
         // Настройки для расчетов по умолчанию
         public void DefaultSettings()
         {
-            Settings.Function = 0;
-            Settings.ArgFunc = 1;
+            Settings.Function = 0;//сигмоида
+            Settings.ArgFunc = 1;//первый тип агрумента
             Settings.SaveToXLS = false;
             Settings.AdvancedReport = false;
             Settings.k1 = 0.5M;
@@ -193,6 +194,7 @@ namespace FCM
         private double argument(int i,int t)
         {
             double sum=0;
+            //расчет значения для первого аргумента
             if(Settings.ArgFunc==1)
             {
                 for(int j=0;j< ArrVertex.Count();j++)
@@ -202,6 +204,7 @@ namespace FCM
                 }
                 return (double)(Settings.k1) *sum+(double)Settings.k2*(ArrVertex[i].Values[t-1]);
             }
+            //расчет значения для аргумента второго типа
             else
             {
                 for (int j = 0; j < ArrVertex.Count(); j++)
@@ -221,7 +224,7 @@ namespace FCM
             {
                 return 1 / (1 + Math.Exp(-x));
             }
-            else if(Settings.Function == 1)
+            else if(Settings.Function == 1)//гауссова функция
             {
                 return Math.Exp(-(x*x)/2);
             }
@@ -234,6 +237,7 @@ namespace FCM
             double x;
             bool check = false;
             try {
+                //замена точек на запятые 
                 for (int i = 0; i < dataGridViewVertex.Columns.Count - 1; i++)
                 {
                     for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
@@ -241,6 +245,7 @@ namespace FCM
                         dataGridViewVertex[i, j].Value = dataGridViewVertex[i, j].Value.ToString().Replace('.', ',');
                     }
                 }
+                //проверка ввода
                 if (dataGridViewVertex.Rows.Count == 0)
                 {
                     MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -259,6 +264,7 @@ namespace FCM
                         return;
                     }
                 }
+                //проеврка введения весов
                 if (!CheckMatch())
                 {
                     MessageBox.Show("Данные о вершинах изменились!\nНеобходимо задать веса заново", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -286,29 +292,32 @@ namespace FCM
                 MessageBox.Show("Ошибка чтения данных из формы!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            //преобразование весов в числа
             FromLingToValue();
             for (int j = 1; !check; j++)
             {
                 check = true;
                 for (int i = 0; i < ArrVertex.Count(); i++)
-                {
+                {//вычисление значений функции
                     x = argument(i, j);
                     ArrVertex[i].Values.Add(func(x));
                     if (Math.Abs(ArrVertex[i].Values[j] - ArrVertex[i].Values[j - 1]) > 0.001)
                         check = false;
                 }
             }
+            //выделение как выходной
             for(int i = 0; i < ArrVertex.Count(); i++)
             {
                 ArrVertex[i].isOutput = Convert.ToBoolean(dataGridViewVertex[2, i].Value);
             }
+            //сохранение в файл
             if(Settings.SaveToXLS)
             {
                 SaveReport(ArrVertex);
             }          
             using (Report report = new Report())
             {
+                //передача управления окну отчета
                 report.Vertexes = ArrVertex;
                 report.Matr = Weights;
                 report.FormClosed += (closedSender, closedE) =>
@@ -332,6 +341,7 @@ namespace FCM
                 StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
                 for (int j = 0; j < ArrVertex.Count(); j++)
                 {
+                    //запись в файл
                     stm.Write(ArrVertex[j].Name + ";");
                     if (Settings.AdvancedReport)
                     {

@@ -77,18 +77,20 @@ namespace FCM
             try
             {
                 for (int i = 1; i <= dataGridViewWeights.Rows.Count; i++)
-            {
+                {
+                    //замена точек на запятые
                 for (int j = 0; j < dataGridViewWeights.Rows.Count; j++)
                 {
                     dataGridViewWeights[i, j].Value = dataGridViewWeights[i, j].Value.ToString().Replace('.', ',');
                 }
-            }
+                }
 
 
                 for (int i = 0; i < dataGridViewWeights.Rows.Count; i++)
                 {
                     for (int j = 1; j <= dataGridViewWeights.Rows.Count; j++)
                     {
+                        //заполнение матрицы веосв из таблицы
                         Match Obj = RE.Match(dataGridViewWeights.Rows[i].Cells[j].Value.ToString());
                         if(Obj.Success)
                         _Matrix[i, j - 1] = dataGridViewWeights.Rows[i].Cells[j].Value.ToString();
@@ -121,7 +123,7 @@ namespace FCM
                 dataGridViewWeights.Rows.Add();
                 dataGridViewWeights.Rows[i].Cells[0].Value = VertexName[i].Name; // заполнение имен концептов вертикально
             }
-            
+            //заполнение таблицы весов
             if (Matr != null)
             {
                 for (int i = 0; i < Matr.N; i++)
@@ -146,6 +148,7 @@ namespace FCM
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //сохранение восов в файл
             SaveFileDialog o = new SaveFileDialog();
             o.Filter = "*.csv|*.csv";
             o.RestoreDirectory = true;
@@ -153,12 +156,14 @@ namespace FCM
             {
                 FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
                 StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
+                //запись имен концептов
                 for(int i=0;i<dataGridViewWeights.ColumnCount;i++)
                 {
                     stm.Write(dataGridViewWeights.Columns[i].HeaderText);
                     if(i != dataGridViewWeights.ColumnCount-1) stm.Write(";");
                 }
                 stm.Write('\n');
+                //запись весов
                 for (int j = 0; j < dataGridViewWeights.Rows.Count; j++)
                 {
                     for (int i = 0; i < dataGridViewWeights.ColumnCount; i++)

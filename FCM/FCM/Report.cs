@@ -28,6 +28,7 @@ namespace FCM
         private void Report_Load(object sender, EventArgs e)
         {
             reportTable.Rows.Clear();
+            //добавление строк и столбцов
             for (int i = 0; i < Vertexes.Count(); i++)
             {
                 reportTable.Columns.Add(Vertexes[i].Name, Vertexes[i].Name);
@@ -36,6 +37,7 @@ namespace FCM
             for(int j = 0; j < Vertexes[0].Values.Count(); j++)
             if(Vertexes[0].Values.Count() > reportTable.RowCount)
                 reportTable.Rows.Add();
+            //вывод значений концептов
             for(int i=0;i<Vertexes.Count();i++)
             {
                 for (int j = 0; j < Vertexes[0].Values.Count(); j++)
@@ -47,10 +49,11 @@ namespace FCM
             
             DrawChartGraph();            
         }       
-
+        //рисование графика
         void DrawChartGraph()
         {
             List<Series> lstSeries = new List<Series>();
+            //добавление элементов
             for (int j = 0; j < reportTable.ColumnCount-1; j++)
             {
                 lstSeries.Add(new Series(Vertexes[j].Name));
@@ -59,7 +62,7 @@ namespace FCM
 
                 for (int i = 0; i < reportTable.RowCount; i++)
                 {
-
+                    //задание точек 
                     double x = Convert.ToDouble(reportTable[0, i].Value);
                     double y = Convert.ToDouble(reportTable[j+1, i].Value);
                     lstSeries[j].Points.AddXY(x, y);
@@ -67,6 +70,7 @@ namespace FCM
             }
             foreach(Series series in lstSeries)
             {
+                //добавление графика
                 chart.Series.Add(series);                
             }            
             for(int i = 0; i < lstSeries.Count(); i++)
@@ -76,7 +80,7 @@ namespace FCM
             }
 
         }       
-
+        //открытие окна графа
         private void button1_Click(object sender, EventArgs e)
         {
             using (Graph gr = new Graph())
@@ -86,7 +90,7 @@ namespace FCM
                 gr.ShowDialog();
             }
         }
-
+        //сохранение графика в файл
         private void buttonSave_Click(object sender, EventArgs e)
         {
             // ДИалог выбора имени файла создаем вручную

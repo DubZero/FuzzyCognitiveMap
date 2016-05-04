@@ -10,23 +10,27 @@ using System.Windows.Forms;
 
 namespace FCM
 {
+    //класс вершины графа
     public class GraphVertex
     {
         public double x, y;
 
         public GraphVertex(double x, double y)
         {
+            //координаты
             this.x = x;
             this.y = y;
         }
     }
 
+    //класс ребер графа
     public class Edge
     {
         public GraphVertex v1, v2;
         public double w;
         public Edge(GraphVertex v1, GraphVertex v2,double weight)
         {
+            //координаты и вес
             this.v1 = v1;
             this.v2 = v2;
             this.w = weight;

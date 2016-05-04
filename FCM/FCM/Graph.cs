@@ -146,7 +146,7 @@ namespace FCM
             }
             return null;
         }
-
+        //закрытие окна
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -162,7 +162,7 @@ namespace FCM
             Pen pen = new Pen(Color.Red,5f);
             pen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
             pen.StartCap = System.Drawing.Drawing2D.LineCap.RoundAnchor;
-
+            //выделение линии
             Brush br = Brushes.Green;
             if (ed != null)
             {                                

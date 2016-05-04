@@ -7,6 +7,7 @@ using System.IO;
 
 namespace FCM
 {
+    //матрица весов
     public class WeightMatrix
     {
         //Поля
