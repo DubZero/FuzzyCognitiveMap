@@ -233,42 +233,43 @@ namespace FCM
         {
             double x;
             bool check = false;
-            for (int i = 0; i < dataGridViewVertex.Columns.Count-1; i++)
-            {
-                for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
+            try {
+                for (int i = 0; i < dataGridViewVertex.Columns.Count - 1; i++)
                 {
-                    dataGridViewVertex[i, j].Value = dataGridViewVertex[i, j].Value.ToString().Replace('.', ',');
+                    for (int j = 0; j < dataGridViewVertex.Rows.Count; j++)
+                    {
+                        dataGridViewVertex[i, j].Value = dataGridViewVertex[i, j].Value.ToString().Replace('.', ',');
+                    }
                 }
-            }
-            if (dataGridViewVertex.Rows.Count == 0)
-            {
-                MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (Weights == null)
-            {
-                MessageBox.Show("Не заданы веса!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                if(Weights._Matrix == null)
+                if (dataGridViewVertex.Rows.Count == 0)
+                {
+                    MessageBox.Show("Не задано ни одной вершины!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (Weights == null)
                 {
                     MessageBox.Show("Не заданы веса!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-            }
-            if(!CheckMatch())
-            {
-                MessageBox.Show("Данные о вершинах изменились!\nНеобходимо задать веса заново", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            for (int i=0;i<ArrVertex.Count();i++)
-            {
-                ArrVertex[i].Values.Clear();
-            }
-            for (int i = 0; i < dataGridViewVertex.Rows.Count; i++)
-            {
+                else
+                {
+                    if (Weights._Matrix == null)
+                    {
+                        MessageBox.Show("Не заданы веса!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                if (!CheckMatch())
+                {
+                    MessageBox.Show("Данные о вершинах изменились!\nНеобходимо задать веса заново", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                for (int i = 0; i < ArrVertex.Count(); i++)
+                {
+                    ArrVertex[i].Values.Clear();
+                }
+                for (int i = 0; i < dataGridViewVertex.Rows.Count; i++)
+                {
                     Match MatchObj = RE.Match(dataGridViewVertex.Rows[i].Cells[1].Value.ToString());
                     if (MatchObj.Success)
                         ArrVertex[i].StartValue = dataGridViewVertex.Rows[i].Cells[1].Value.ToString();
@@ -277,9 +278,14 @@ namespace FCM
                         MessageBox.Show("Неверные данные!\nСтрока " + (i + 1).ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-            }
+                }
 
-            
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ошибка чтения данных из формы!\n"+ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             FromLingToValue();
             for (int j = 1; !check; j++)
