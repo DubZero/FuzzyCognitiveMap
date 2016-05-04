@@ -204,7 +204,7 @@
             // 
             this.ColumnIsOutput.HeaderText = "Выходное значение";
             this.ColumnIsOutput.Name = "ColumnIsOutput";
-            this.ColumnIsOutput.Width = 85;
+            this.ColumnIsOutput.Width = 84;
             // 
             // Main
             // 
