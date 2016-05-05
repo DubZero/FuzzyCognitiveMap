@@ -151,6 +151,7 @@
     <Content Include="Resources\2.png" />
     <Content Include="Resources\3.png" />
     <Content Include="Resources\4.png" />
+    <None Include="Resources\BackGround.png" />
     <Content Include="Resources\FCM.ico" />
   </ItemGroup>
   <ItemGroup>

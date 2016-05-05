@@ -27,7 +27,7 @@ namespace FCM
         public WeightMatrix Matr { get; set; }
         //радиус вершины
         double VertRad=20;
-    //вычисление адиуса большой окружности
+        //вычисление адиуса большой окружности
         double calcRad()
         {
             double rad = 20;
@@ -72,7 +72,7 @@ namespace FCM
             OutputPen.Width = 5;
             pen2.Width = 1.5f;
             bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
-            graph=new Bitmap(pictureBox.Width, pictureBox.Height); ;
+            graph=new Bitmap(pictureBox.Image);
             Graphics g = Graphics.FromImage(graph);
             calcVert(radius);
             Brush wh = Brushes.White;
@@ -91,7 +91,7 @@ namespace FCM
                     g.DrawEllipse(pen,(float)GraphV[i].x,(float)GraphV[i].y,(float)VertRad*2,(float)VertRad*2);
                 g.FillEllipse(wh, (float)GraphV[i].x, (float)GraphV[i].y, (float)VertRad * 2, (float)VertRad * 2);
                 g.DrawString("C"+(i+1).ToString(), new Font("Microsoft Sans Serif", 8.5F, FontStyle.Regular),br, (float)(GraphV[i].x+VertRad/4), (float)(GraphV[i].y+VertRad/4));
-            }           
+            }                     
             pictureBox.Image = graph;
         }
         private bool isBackEdge(GraphVertex v1,GraphVertex v2)
@@ -150,6 +150,29 @@ namespace FCM
         private void buttonBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void saveGraph_Click(object sender, EventArgs e)
+        {
+            // ДИалог выбора имени файла создаем вручную
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";           
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                // Формат картинки выбирается исходя из имени выбранного файла
+                if (dlg.FileName.EndsWith(".png"))
+                {
+                    pictureBox.Image.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                }
+                else if (dlg.FileName.EndsWith(".jpg") || dlg.FileName.EndsWith(".jpeg"))
+                {
+                    pictureBox.Image.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                else if (dlg.FileName.EndsWith(".bmp"))
+                {
+                    pictureBox.Image.Save(dlg.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                }
+            }
         }
 
         //обработка клика по рисунку
