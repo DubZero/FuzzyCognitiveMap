@@ -143,30 +143,33 @@ namespace FCM
             }
             isOutputFlag = chbOutput.Checked;
         }
-        void DatFileSave(Vertex[] ArrVertex)
+        void RFileSave(Vertex[] ArrVertex)
         {
-            SaveFileDialog dat = new SaveFileDialog();
-            dat.Filter = "*.dat|*.dat";
-            dat.RestoreDirectory = true;
-            if (dat.ShowDialog(this) == DialogResult.OK)
+            SaveFileDialog o = new SaveFileDialog();
+            o.Filter = "*.csv|*.csv";
+            o.RestoreDirectory = true;
+            if (o.ShowDialog(this) == DialogResult.OK)
             {
-                FileStream f = new FileStream(dat.FileName, FileMode.Create, FileAccess.Write);
+                FileStream f = new FileStream(o.FileName, FileMode.Create, FileAccess.Write);
                 StreamWriter stm = new StreamWriter(f, System.Text.Encoding.GetEncoding(1251));
+                for (int n = 0; n < ArrVertex.Count(); n++)
+                    stm.Write(ArrVertex[n].Name + ",");
+                stm.Write("\n");
                 for (int j = 0; j < ArrVertex[0].Values.Count(); j++)
                 {
                     //запись в файл    
                     for (int i = 0; i < ArrVertex.Count(); i++)
                     {
-                        stm.Write(Math.Round(ArrVertex[i].Values[j], 3).ToString().Replace(',', '.') + " ");
-                    }                    
+                        stm.Write(Math.Round(ArrVertex[i].Values[j],4).ToString().Replace(',', '.') + ",");
+                    }
+                    stm.Write("\n");
                 }
-                stm.Close();
             }
         }
         // Создание dat. файла (текстовый набор данных) для R-studio
         private void toDatFile_Click(object sender, EventArgs e)
         {
-            DatFileSave(Vertexes);
+            RFileSave(Vertexes);
         }
     }
 }
