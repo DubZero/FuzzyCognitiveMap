@@ -15,6 +15,7 @@ using System.IO;
 
 namespace FCM
 {
+ 
     public partial class Report : Form
     {
         public Vertex[] Vertexes { get; set; }
@@ -156,7 +157,7 @@ namespace FCM
                     //запись в файл    
                     for (int i = 0; i < ArrVertex.Count(); i++)
                     {
-                        stm.Write(Math.Round(ArrVertex[i].Values[j], 3) + " ");
+                        stm.Write(Math.Round(ArrVertex[i].Values[j], 3).ToString().Replace(',', '.') + " ");
                     }                    
                 }
                 stm.Close();
