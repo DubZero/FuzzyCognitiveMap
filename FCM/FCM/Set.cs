@@ -82,5 +82,14 @@ namespace FCM
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (Help help = new Help())
+            {
+
+                help.ShowDialog();
+            }
+        }
     }
 }

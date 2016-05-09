@@ -146,17 +146,22 @@ namespace FCM
             }
             return null;
         }
-        //закрытие окна
-        private void buttonBack_Click(object sender, EventArgs e)
+
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            using (Help help = new Help())
+            {
+
+                help.ShowDialog();
+            }
         }
 
-        private void saveGraph_Click(object sender, EventArgs e)
+        private void сохранитьВpngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // ДИалог выбора имени файла создаем вручную
             SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";           
+            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 // Формат картинки выбирается исходя из имени выбранного файла

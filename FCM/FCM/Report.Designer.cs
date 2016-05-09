@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            this.button1 = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.chbOutput = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,25 +40,22 @@
             this.reportTable = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.toDatFile = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.графToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.построитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вФайлДляRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.графикВPngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportTable)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(12, 650);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Построить граф";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage3
             // 
@@ -72,7 +68,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1025, 602);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Chart график";
+            this.tabPage3.Text = "График";
             // 
             // chbOutput
             // 
@@ -109,31 +105,31 @@
             this.chart.BorderlineWidth = 4;
             this.chart.BorderSkin.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
             this.chart.BorderSkin.PageColor = System.Drawing.Color.Transparent;
-            chartArea3.AxisX.Crossing = 0D;
-            chartArea3.AxisX.IsMarginVisible = false;
-            chartArea3.AxisX.Minimum = 0D;
-            chartArea3.AxisX.Title = "Time";
-            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            chartArea3.AxisY.Crossing = 0D;
-            chartArea3.AxisY.Maximum = 1D;
-            chartArea3.AxisY.Minimum = 0D;
-            chartArea3.AxisY.Title = "Nodes values";
-            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            chartArea3.BackColor = System.Drawing.Color.White;
-            chartArea3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            chartArea3.BackSecondaryColor = System.Drawing.Color.WhiteSmoke;
-            chartArea3.BorderColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.Gray;
-            legend3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            legend3.BackSecondaryColor = System.Drawing.Color.DarkGray;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            legend3.TitleBackColor = System.Drawing.Color.Transparent;
-            this.chart.Legends.Add(legend3);
+            chartArea10.AxisX.Crossing = 0D;
+            chartArea10.AxisX.IsMarginVisible = false;
+            chartArea10.AxisX.Minimum = 0D;
+            chartArea10.AxisX.Title = "Time";
+            chartArea10.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea10.AxisY.Crossing = 0D;
+            chartArea10.AxisY.Maximum = 1D;
+            chartArea10.AxisY.Minimum = 0D;
+            chartArea10.AxisY.Title = "Nodes values";
+            chartArea10.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea10.BackColor = System.Drawing.Color.White;
+            chartArea10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            chartArea10.BackSecondaryColor = System.Drawing.Color.WhiteSmoke;
+            chartArea10.BorderColor = System.Drawing.Color.Transparent;
+            chartArea10.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea10);
+            legend10.BackColor = System.Drawing.Color.Gray;
+            legend10.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            legend10.BackSecondaryColor = System.Drawing.Color.DarkGray;
+            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            legend10.IsTextAutoFit = false;
+            legend10.Name = "Legend1";
+            legend10.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chart.Legends.Add(legend10);
             this.chart.Location = new System.Drawing.Point(-4, 3);
             this.chart.Name = "chart";
             this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -152,25 +148,25 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))))};
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series3.IsValueShownAsLabel = true;
-            series3.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            series3.LabelBorderWidth = 2;
-            series3.Legend = "Legend1";
-            series3.MarkerBorderColor = System.Drawing.Color.White;
-            series3.MarkerBorderWidth = 4;
-            series3.MarkerColor = System.Drawing.Color.White;
-            series3.Name = "Series1";
-            this.chart.Series.Add(series3);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            series10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series10.IsValueShownAsLabel = true;
+            series10.LabelBorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series10.LabelBorderWidth = 2;
+            series10.Legend = "Legend1";
+            series10.MarkerBorderColor = System.Drawing.Color.White;
+            series10.MarkerBorderWidth = 4;
+            series10.MarkerColor = System.Drawing.Color.White;
+            series10.Name = "Series1";
+            this.chart.Series.Add(series10);
             this.chart.Size = new System.Drawing.Size(1044, 598);
             this.chart.TabIndex = 0;
             this.chart.Text = "chart1";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            title3.Name = "Title1";
-            title3.Text = "Analysis Chart";
-            this.chart.Titles.Add(title3);
+            title10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title10.Name = "Title1";
+            title10.Text = "Analysis Chart";
+            this.chart.Titles.Add(title10);
             // 
             // tabPage1
             // 
@@ -213,32 +209,87 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
+            this.tabControl1.Location = new System.Drawing.Point(13, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1033, 631);
             this.tabControl1.TabIndex = 0;
             // 
-            // buttonSave
+            // menuStrip1
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(869, 650);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(177, 23);
-            this.buttonSave.TabIndex = 1;
-            this.buttonSave.Text = "Сохранить график";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            this.menuStrip1.BackColor = System.Drawing.Color.DimGray;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.графToolStripMenuItem,
+            this.экспортToolStripMenuItem,
+            this.помощьToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1058, 28);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // toDatFile
+            // графToolStripMenuItem
             // 
-            this.toDatFile.Location = new System.Drawing.Point(411, 650);
-            this.toDatFile.Name = "toDatFile";
-            this.toDatFile.Size = new System.Drawing.Size(163, 23);
-            this.toDatFile.TabIndex = 2;
-            this.toDatFile.Text = "Экспорт в .dat файл";
-            this.toDatFile.UseVisualStyleBackColor = true;
-            this.toDatFile.Click += new System.EventHandler(this.toDatFile_Click);
+            this.графToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.построитьToolStripMenuItem,
+            this.сохранитьToolStripMenuItem});
+            this.графToolStripMenuItem.Name = "графToolStripMenuItem";
+            this.графToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.графToolStripMenuItem.Text = "Граф";
+            // 
+            // построитьToolStripMenuItem
+            // 
+            this.построитьToolStripMenuItem.Name = "построитьToolStripMenuItem";
+            this.построитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.построитьToolStripMenuItem.Text = "Построить";
+            this.построитьToolStripMenuItem.Click += new System.EventHandler(this.построитьToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Visible = false;
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // экспортToolStripMenuItem
+            // 
+            this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.вФайлДляRToolStripMenuItem,
+            this.графикВPngToolStripMenuItem});
+            this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
+            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.экспортToolStripMenuItem.Text = "Экспорт";
+            // 
+            // вФайлДляRToolStripMenuItem
+            // 
+            this.вФайлДляRToolStripMenuItem.Name = "вФайлДляRToolStripMenuItem";
+            this.вФайлДляRToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.вФайлДляRToolStripMenuItem.Text = "В файл для R";
+            this.вФайлДляRToolStripMenuItem.Click += new System.EventHandler(this.вФайлДляRToolStripMenuItem_Click);
+            // 
+            // графикВPngToolStripMenuItem
+            // 
+            this.графикВPngToolStripMenuItem.Name = "графикВPngToolStripMenuItem";
+            this.графикВPngToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.графикВPngToolStripMenuItem.Text = "График в png";
+            this.графикВPngToolStripMenuItem.Click += new System.EventHandler(this.графикВPngToolStripMenuItem_Click);
+            // 
+            // помощьToolStripMenuItem
+            // 
+            this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.помощьToolStripMenuItem.Text = "Помощь";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
             // Report
             // 
@@ -246,10 +297,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(1058, 675);
-            this.Controls.Add(this.toDatFile);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1074, 714);
             this.Name = "Report";
             this.Text = "Отчет";
@@ -260,21 +310,30 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.reportTable)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView reportTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.CheckBox chbOutput;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button toDatFile;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem графToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem построитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вФайлДляRToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem графикВPngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
     }
 }

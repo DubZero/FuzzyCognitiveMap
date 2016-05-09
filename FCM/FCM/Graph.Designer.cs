@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.buttonBack = new System.Windows.Forms.Button();
-            this.saveGraph = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьВpngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -39,7 +43,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.LightGray;
             this.pictureBox.BackgroundImage = global::FCM.Properties.Resources.BackGround;
             this.pictureBox.Image = global::FCM.Properties.Resources.BackGround;
-            this.pictureBox.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox.Location = new System.Drawing.Point(12, 27);
             this.pictureBox.MaximumSize = new System.Drawing.Size(1057, 633);
             this.pictureBox.MinimumSize = new System.Drawing.Size(1057, 633);
             this.pictureBox.Name = "pictureBox";
@@ -49,51 +53,78 @@
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
-            // buttonBack
+            // menuStrip1
             // 
-            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBack.Location = new System.Drawing.Point(995, 652);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 23);
-            this.buttonBack.TabIndex = 1;
-            this.buttonBack.Text = "Назад";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            this.menuStrip1.BackColor = System.Drawing.Color.DimGray;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.помощьToolStripMenuItem,
+            this.сохранитьToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1077, 28);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // saveGraph
+            // помощьToolStripMenuItem
             // 
-            this.saveGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveGraph.Location = new System.Drawing.Point(12, 652);
-            this.saveGraph.Name = "saveGraph";
-            this.saveGraph.Size = new System.Drawing.Size(98, 23);
-            this.saveGraph.TabIndex = 2;
-            this.saveGraph.Text = "Сохранить граф";
-            this.saveGraph.UseVisualStyleBackColor = true;
-            this.saveGraph.Click += new System.EventHandler(this.saveGraph_Click);
+            this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.помощьToolStripMenuItem.Text = "Помощь";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьВpngToolStripMenuItem});
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            // 
+            // сохранитьВpngToolStripMenuItem
+            // 
+            this.сохранитьВpngToolStripMenuItem.Name = "сохранитьВpngToolStripMenuItem";
+            this.сохранитьВpngToolStripMenuItem.Size = new System.Drawing.Size(200, 24);
+            this.сохранитьВpngToolStripMenuItem.Text = "Сохранить в .png";
+            this.сохранитьВpngToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВpngToolStripMenuItem_Click);
             // 
             // Graph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(1077, 687);
-            this.Controls.Add(this.saveGraph);
-            this.Controls.Add(this.buttonBack);
+            this.ClientSize = new System.Drawing.Size(1077, 677);
             this.Controls.Add(this.pictureBox);
-            this.MaximumSize = new System.Drawing.Size(1093, 726);
-            this.MinimumSize = new System.Drawing.Size(1093, 726);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1093, 716);
+            this.MinimumSize = new System.Drawing.Size(1093, 716);
             this.Name = "Graph";
             this.Text = "Graph";
             this.Load += new System.EventHandler(this.Graph_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Button saveGraph;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьВpngToolStripMenuItem;
     }
 }

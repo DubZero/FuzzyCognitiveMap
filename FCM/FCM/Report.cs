@@ -84,42 +84,8 @@ namespace FCM
             }
 
         }
-        //открытие окна графа
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (Graph gr = new Graph())
-            {
-                gr.ArrVertex = Vertexes;
-                gr.Matr = Matr;
-                gr.ShowDialog();
-            }
-        }
-        //сохранение графика в файл
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            // Диалог выбора имени файла создаем вручную
-            SaveFileDialog dlg = new SaveFileDialog();
-            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";
 
 
-
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                // Формат картинки выбирается исходя из имени выбранного файла
-                if (dlg.FileName.EndsWith(".png"))
-                {
-                    chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Png);
-                }
-                else if (dlg.FileName.EndsWith(".jpg") || dlg.FileName.EndsWith(".jpeg"))
-                {
-                    chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                else if (dlg.FileName.EndsWith(".bmp"))
-                {
-                    chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
-                }
-            }
-        }
 
         // Убрать\Показать линии НЕ выходных значений
         private void chbOutput_CheckedChanged(object sender, EventArgs e)
@@ -174,6 +140,60 @@ namespace FCM
         private void toDatFile_Click(object sender, EventArgs e)
         {
             RFileSave(Vertexes);
+        }
+
+        private void построитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Graph gr = new Graph())
+            {
+                gr.ArrVertex = Vertexes;
+                gr.Matr = Matr;
+                gr.ShowDialog();
+            }
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void вФайлДляRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RFileSave(Vertexes);
+        }
+
+        private void графикВPngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Диалог выбора имени файла создаем вручную
+            SaveFileDialog dlg = new SaveFileDialog();
+            dlg.Filter = "*.png|*.png|*.jpg; *.jpeg|*.jpg;*.jpeg|*.bmp|*.bmp|Все файлы|*.*";
+
+
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                // Формат картинки выбирается исходя из имени выбранного файла
+                if (dlg.FileName.EndsWith(".png"))
+                {
+                    chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Png);
+                }
+                else if (dlg.FileName.EndsWith(".jpg") || dlg.FileName.EndsWith(".jpeg"))
+                {
+                    chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                else if (dlg.FileName.EndsWith(".bmp"))
+                {
+                    chart.SaveImage(dlg.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                }
+            }
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Help help = new Help())
+            {
+                help.ShowDialog();
+            }
         }
     }
 }

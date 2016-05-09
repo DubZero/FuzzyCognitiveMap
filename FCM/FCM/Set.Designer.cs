@@ -44,6 +44,7 @@
             this.chbSaveToXls = new System.Windows.Forms.CheckBox();
             this.chbAdnReport = new System.Windows.Forms.CheckBox();
             this.bntApply = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.feedback)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.k2Num)).BeginInit();
@@ -72,7 +73,7 @@
             "sigmoid(x) Сигмоидальная функция",
             "gaussmf(x) Гауссова функция"});
             this.funcBox.Location = new System.Drawing.Point(64, 16);
-            this.funcBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.funcBox.Margin = new System.Windows.Forms.Padding(4);
             this.funcBox.Name = "funcBox";
             this.funcBox.Size = new System.Drawing.Size(491, 24);
             this.funcBox.TabIndex = 1;
@@ -93,9 +94,9 @@
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Location = new System.Drawing.Point(17, 53);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(539, 233);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -121,7 +122,7 @@
             0,
             65536});
             this.feedback.Location = new System.Drawing.Point(451, 166);
-            this.feedback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.feedback.Margin = new System.Windows.Forms.Padding(4);
             this.feedback.Name = "feedback";
             this.feedback.Size = new System.Drawing.Size(76, 22);
             this.feedback.TabIndex = 8;
@@ -156,7 +157,7 @@
             0,
             65536});
             this.k2Num.Location = new System.Drawing.Point(451, 78);
-            this.k2Num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.k2Num.Margin = new System.Windows.Forms.Padding(4);
             this.k2Num.MinimumSize = new System.Drawing.Size(76, 0);
             this.k2Num.Name = "k2Num";
             this.k2Num.Size = new System.Drawing.Size(76, 22);
@@ -171,7 +172,7 @@
             0,
             65536});
             this.k1Num.Location = new System.Drawing.Point(451, 33);
-            this.k1Num.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.k1Num.Margin = new System.Windows.Forms.Padding(4);
             this.k1Num.Name = "k1Num";
             this.k1Num.Size = new System.Drawing.Size(76, 22);
             this.k1Num.TabIndex = 4;
@@ -181,7 +182,7 @@
             this.pictureBox2.Image = global::FCM.Properties.Resources._4;
             this.pictureBox2.InitialImage = global::FCM.Properties.Resources._4;
             this.pictureBox2.Location = new System.Drawing.Point(36, 129);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(356, 98);
             this.pictureBox2.TabIndex = 3;
@@ -192,7 +193,7 @@
             this.pictureBox1.Image = global::FCM.Properties.Resources._3;
             this.pictureBox1.InitialImage = global::FCM.Properties.Resources._3;
             this.pictureBox1.Location = new System.Drawing.Point(36, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(356, 98);
             this.pictureBox1.TabIndex = 2;
@@ -202,7 +203,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(9, 132);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(14, 13);
             this.radioButton2.TabIndex = 1;
@@ -212,7 +213,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(9, 25);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(14, 13);
             this.radioButton1.TabIndex = 0;
@@ -224,7 +225,7 @@
             this.chbSaveToXls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbSaveToXls.AutoSize = true;
             this.chbSaveToXls.Location = new System.Drawing.Point(17, 294);
-            this.chbSaveToXls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbSaveToXls.Margin = new System.Windows.Forms.Padding(4);
             this.chbSaveToXls.Name = "chbSaveToXls";
             this.chbSaveToXls.Size = new System.Drawing.Size(129, 20);
             this.chbSaveToXls.TabIndex = 3;
@@ -236,7 +237,7 @@
             this.chbAdnReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chbAdnReport.AutoSize = true;
             this.chbAdnReport.Location = new System.Drawing.Point(17, 323);
-            this.chbAdnReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbAdnReport.Margin = new System.Windows.Forms.Padding(4);
             this.chbAdnReport.Name = "chbAdnReport";
             this.chbAdnReport.Size = new System.Drawing.Size(158, 20);
             this.chbAdnReport.TabIndex = 4;
@@ -247,7 +248,7 @@
             // 
             this.bntApply.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bntApply.Location = new System.Drawing.Point(365, 309);
-            this.bntApply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntApply.Margin = new System.Windows.Forms.Padding(4);
             this.bntApply.Name = "bntApply";
             this.bntApply.Size = new System.Drawing.Size(191, 28);
             this.bntApply.TabIndex = 5;
@@ -255,12 +256,23 @@
             this.bntApply.UseVisualStyleBackColor = true;
             this.bntApply.Click += new System.EventHandler(this.bntApply_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(174, 309);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 28);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Справка";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Set
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(572, 352);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bntApply);
             this.Controls.Add(this.chbAdnReport);
             this.Controls.Add(this.chbSaveToXls);
@@ -269,7 +281,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(588, 391);
             this.MinimumSize = new System.Drawing.Size(588, 391);
             this.Name = "Set";
@@ -305,5 +317,6 @@
         private System.Windows.Forms.NumericUpDown k1Num;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown feedback;
+        private System.Windows.Forms.Button button1;
     }
 }

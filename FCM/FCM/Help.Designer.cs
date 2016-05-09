@@ -47,6 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 432);
             this.Controls.Add(this.webBrowser1);
+            this.MinimumSize = new System.Drawing.Size(686, 471);
             this.Name = "Help";
             this.Text = "Справка";
             this.Load += new System.EventHandler(this.Help_Load);
