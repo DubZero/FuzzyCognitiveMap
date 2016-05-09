@@ -175,8 +175,8 @@
     <Content Include="Resources\i_094cf2f63cc2f6f7_html_dc5bedd6.png" />
     <Content Include="Resources\i_094cf2f63cc2f6f7_html_e07005fe.png" />
     <Content Include="Resources\i_094cf2f63cc2f6f7_html_fde06a2c.png" />
+    <Content Include="Resources\logo.ico" />
     <None Include="Resources\BackGround.png" />
-    <Content Include="Resources\FCM.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
