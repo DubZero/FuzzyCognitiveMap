@@ -49,7 +49,7 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>FCM2.ico</ApplicationIcon>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -155,12 +155,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FCM.ico" />
     <Content Include="FCM2.ico" />
     <Content Include="help.html" />
+    <Content Include="logo.ico" />
     <Content Include="Resources\1.png" />
     <Content Include="Resources\2.png" />
     <Content Include="Resources\3.png" />
     <Content Include="Resources\4.png" />
+    <Content Include="Resources\help.html" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_25450cc3.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_3042059c.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_392632b.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_434d7102.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_57c1d6d5.jpg" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_867b0009.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_b0456ccc.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_d58aad3d.jpg" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_dc5bedd6.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_e07005fe.png" />
+    <Content Include="Resources\i_094cf2f63cc2f6f7_html_fde06a2c.png" />
     <None Include="Resources\BackGround.png" />
     <Content Include="Resources\FCM.ico" />
   </ItemGroup>
