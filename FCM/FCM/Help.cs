@@ -19,8 +19,7 @@ namespace FCM
 
         private void Help_Load(object sender, EventArgs e)
         {
-           string str = AppDomain.CurrentDomain.BaseDirectory; 
-           webBrowser1.Navigate(str+@"input\help\help.html");
+           // webBrowser1.Navigate(@"help.html");
         }
     }
 }
