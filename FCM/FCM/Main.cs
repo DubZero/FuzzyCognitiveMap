@@ -405,5 +405,14 @@ namespace FCM
                 stm.Close();
             }
         }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Help help = new Help())
+            {
+
+                help.ShowDialog();
+            }
+        }
     }
 }

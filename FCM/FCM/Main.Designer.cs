@@ -38,13 +38,15 @@
             this.VertexNum = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewVertex = new System.Windows.Forms.DataGridView();
+            this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnIsOutput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnToWeights = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnCalc = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.c1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnIsOutput = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VertexNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVertex)).BeginInit();
@@ -56,7 +58,8 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItem,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -150,6 +153,25 @@
             this.dataGridViewVertex.Size = new System.Drawing.Size(327, 295);
             this.dataGridViewVertex.TabIndex = 4;
             // 
+            // c1
+            // 
+            this.c1.HeaderText = "Имя";
+            this.c1.Name = "c1";
+            this.c1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.c1.Width = 140;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Начальное значение";
+            this.Column1.Name = "Column1";
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnIsOutput
+            // 
+            this.ColumnIsOutput.HeaderText = "Выходное значение";
+            this.ColumnIsOutput.Name = "ColumnIsOutput";
+            this.ColumnIsOutput.Width = 84;
+            // 
             // btnToWeights
             // 
             this.btnToWeights.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -187,24 +209,20 @@
             // 
             this.openFileDialog1.Filter = "\"CSV files|*.csv*|Все файлы|*.*\"";
             // 
-            // c1
+            // помощьToolStripMenuItem
             // 
-            this.c1.HeaderText = "Имя";
-            this.c1.Name = "c1";
-            this.c1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.c1.Width = 140;
+            this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.справкаToolStripMenuItem});
+            this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
+            this.помощьToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.помощьToolStripMenuItem.Text = "Помощь";
             // 
-            // Column1
+            // справкаToolStripMenuItem
             // 
-            this.Column1.HeaderText = "Начальное значение";
-            this.Column1.Name = "Column1";
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnIsOutput
-            // 
-            this.ColumnIsOutput.HeaderText = "Выходное значение";
-            this.ColumnIsOutput.Name = "ColumnIsOutput";
-            this.ColumnIsOutput.Width = 84;
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -255,6 +273,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn c1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnIsOutput;
+        private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
     }
 }
 
