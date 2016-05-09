@@ -156,7 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FCM2.ico" />
-    <Content Include="help.html" />
     <Content Include="Resources\1.png" />
     <Content Include="Resources\2.png" />
     <Content Include="Resources\3.png" />
