@@ -69,6 +69,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8D565061AD8444D0BEE06BF5DDE3AD2E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A4FDAAC3C73D41789EDF01B77899DF45"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -376,6 +382,26 @@
             "TargetName" = "8:logo.ico"
             "Tag" = "8:"
             "Folder" = "8:_253712A8D58C45A891B56D08663856FE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D565061AD8444D0BEE06BF5DDE3AD2E"
+            {
+            "SourcePath" = "8:..\\FCM\\output\\scr.r"
+            "TargetName" = "8:scr.r"
+            "Tag" = "8:"
+            "Folder" = "8:_88AE03C539CB42398D1AAEC870286E58"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
